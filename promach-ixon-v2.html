@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProMach × IXON — Digital Service Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* ProMach Brand */
+  --pm-navy:   #1E2654;
+  --pm-teal:   #2AAE8A;
+  --pm-teal-light: #e6f7f2;
+  --pm-teal-mid: #b3e8d8;
+
+  /* IXON Brand */
+  --ix-blue:   #1059D2;
+  --ix-dark:   #021752;
+  --ix-yellow: #FACD00;
+  --ix-offwh:  #F3F4FA;
+  --ix-lblue:  #dbeafe;
+  --ix-lblue2: #e8f0fd;
+
+  /* Shared/Neutral */
+  --navy:      #1E2654; /* same as pm-navy — unified dark */
+  --grey:      #626262;
+  --border:    #e2e8f0;
+  --text-dark: #1E2654;
+  --text-body: #334155;
+
+  --font-h: 'Poppins', sans-serif;
+  --font-b: 'Roboto', sans-serif;
+  --font-m: 'Roboto Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-b); background: var(--ix-offwh); color: var(--text-dark); font-size: 14px; line-height: 1.65; }
+
+/* ─── HEADER ─────────────────────────────────── */
+.hdr {
+  background: var(--navy);
+  padding: 0 48px;
+  height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 3px solid var(--pm-teal);
+}
+.hdr-l { display: flex; align-items: center; gap: 24px; }
+.hdr-div { width: 1px; height: 38px; background: rgba(255,255,255,0.12); }
+.hdr-badge {
+  font-family: var(--font-h); font-weight: 300; font-size: 10px;
+  letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.45);
+}
+.hdr-tag {
+  background: var(--pm-teal); color: #fff;
+  font-family: var(--font-h); font-weight: 600; font-size: 10px;
+  padding: 5px 12px; border-radius: 4px; letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* ─── HERO ────────────────────────────────────── */
+.hero {
+  background: linear-gradient(130deg, var(--navy) 0%, #0e1d4a 45%, var(--ix-blue) 100%);
+  padding: 64px 48px 60px;
+  color: #fff;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(42,174,138,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: -40px; left: 40%;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(16,89,210,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: var(--font-h); font-weight: 500; font-size: 11px;
+  color: var(--pm-teal); letter-spacing: 2.5px; text-transform: uppercase;
+  margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+}
+.hero-eyebrow::before {
+  content: ''; display: inline-block;
+  width: 24px; height: 2px; background: var(--pm-teal);
+}
+.hero h1 {
+  font-family: var(--font-h); font-weight: 800; font-size: 38px;
+  line-height: 1.15; margin-bottom: 16px; max-width: 760px;
+  letter-spacing: -0.5px;
+}
+.hero h1 em { font-style: normal; color: var(--pm-teal); }
+.hero h1 strong { font-weight: 800; color: var(--ix-yellow); }
+.hero-sub {
+  font-family: var(--font-h); font-weight: 300; font-size: 16px;
+  color: rgba(255,255,255,0.68); max-width: 620px; line-height: 1.8; margin-bottom: 40px;
+}
+.hero-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+.hp {
+  border: 1px solid rgba(255,255,255,0.16); border-radius: 20px;
+  padding: 6px 16px; font-size: 12px; font-family: var(--font-h); font-weight: 500;
+  color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 7px;
+}
+.hp .dot-teal { width: 6px; height: 6px; border-radius: 50%; background: var(--pm-teal); flex-shrink: 0; }
+.hp .dot-yellow { width: 6px; height: 6px; border-radius: 50%; background: var(--ix-yellow); flex-shrink: 0; }
+.hp .dot-blue { width: 6px; height: 6px; border-radius: 50%; background: #6fa3ff; flex-shrink: 0; }
+
+/* ─── SECTIONS ────────────────────────────────── */
+.sec { padding: 56px 48px; }
+.sec-white { background: #fff; }
+.sec-offwh { background: var(--ix-offwh); }
+.sec-navy  { background: var(--navy); color: #fff; }
+.sec-teal  { background: var(--pm-teal); color: #fff; }
+
+.sec-eyebrow {
+  font-family: var(--font-h); font-weight: 600; font-size: 10px;
+  letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 8px;
+  color: var(--ix-blue);
+}
+.sec-navy .sec-eyebrow { color: var(--pm-teal); }
+.sec-teal .sec-eyebrow { color: rgba(255,255,255,0.7); }
+.sec-white .sec-eyebrow { color: var(--ix-blue); }
+
+.sec-title {
+  font-family: var(--font-h); font-weight: 700; font-size: 26px;
+  color: var(--navy); margin-bottom: 10px; letter-spacing: -0.3px;
+}
+.sec-navy .sec-title { color: #fff; }
+.sec-teal .sec-title { color: #fff; }
+
+.sec-desc {
+  font-size: 14px; color: var(--grey); max-width: 700px; margin-bottom: 36px;
+  line-height: 1.75;
+}
+.sec-navy .sec-desc { color: rgba(255,255,255,0.55); }
+.sec-teal .sec-desc { color: rgba(255,255,255,0.8); }
+
+/* ─── THREE TRUTHS ────────────────────────────── */
+.truths { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.truth-card {
+  background: #fff; border-radius: 14px; padding: 28px 24px;
+  border: 1px solid var(--border); position: relative; overflow: hidden;
+}
+.truth-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+}
+.truth-card.t1::before { background: var(--ix-blue); }
+.truth-card.t2::before { background: var(--pm-teal); }
+.truth-card.t3::before { background: var(--ix-yellow); }
+.truth-num {
+  font-family: var(--font-h); font-weight: 800; font-size: 40px;
+  line-height: 1; margin-bottom: 10px; opacity: 0.08; color: var(--navy);
+}
+.truth-title {
+  font-family: var(--font-h); font-weight: 700; font-size: 15px;
+  color: var(--navy); margin-bottom: 10px;
+}
+.truth-body { font-size: 13px; color: var(--grey); line-height: 1.75; }
+.truth-cite {
+  margin-top: 14px; padding: 10px 14px;
+  background: var(--ix-offwh); border-radius: 6px;
+  font-size: 11px; color: var(--text-body); font-style: italic; line-height: 1.6;
+  border-left: 3px solid var(--pm-teal);
+}
+.truth-card.t1 .truth-cite { border-left-color: var(--ix-blue); }
+.truth-card.t3 .truth-cite { border-left-color: var(--ix-yellow); }
+
+/* ─── OMNIA CASE ──────────────────────────────── */
+.omnia {
+  background: var(--navy); border-radius: 14px; padding: 28px 32px;
+  display: flex; gap: 28px; align-items: flex-start;
+  max-width: 100%; margin-top: 36px;
+  border: 1px solid rgba(42,174,138,0.25);
+  position: relative; overflow: hidden;
+}
+.omnia::after {
+  content: '';
+  position: absolute; right: -30px; top: -30px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(42,174,138,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.omnia-play {
+  width: 56px; height: 56px; background: var(--pm-teal); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 20px; cursor: pointer;
+  box-shadow: 0 0 0 8px rgba(42,174,138,0.15);
+}
+.omnia-label {
+  font-family: var(--font-h); font-weight: 600; font-size: 10px;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--pm-teal); margin-bottom: 6px;
+}
+.omnia-title { font-family: var(--font-h); font-weight: 700; font-size: 16px; color: #fff; margin-bottom: 8px; }
+.omnia-body { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.75; }
+.omnia-link {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
+  font-size: 11px; color: var(--ix-yellow); font-family: var(--font-h); font-weight: 600;
+  text-decoration: none; letter-spacing: 0.5px;
+}
+.omnia-mirror {
+  margin-top: 10px; padding: 8px 12px; background: rgba(250,205,0,0.1);
+  border-radius: 6px; font-size: 11px; color: var(--ix-yellow); font-style: italic;
+}
+
+/* ─── DECISION FRAMEWORK ──────────────────────── */
+.mbh-outer { overflow-x: auto; }
+.mbh {
+  width: 100%; border-collapse: collapse; border-radius: 12px;
+  overflow: hidden; box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  min-width: 720px;
+}
+.mbh thead tr th {
+  padding: 16px 20px; font-family: var(--font-h); font-weight: 600; font-size: 13px;
+  text-align: left;
+}
+.mbh th.hdr-crit { background: var(--navy); color: rgba(255,255,255,0.6); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; width: 18%; }
+.mbh th.hdr-make { background: #f1f5f9; color: #64748b; }
+.mbh th.hdr-buy  { background: #eff6ff; color: var(--ix-blue); }
+.mbh th.hdr-hyb  { background: var(--ix-blue); color: #fff; position: relative; }
+.mbh th.hdr-hyb::after {
+  content: '✦ RECOMMENDED';
+  position: absolute; top: 50%; right: 14px; transform: translateY(-50%);
+  font-size: 9px; background: var(--ix-yellow); color: var(--navy);
+  padding: 3px 7px; border-radius: 3px; font-weight: 800; letter-spacing: 1px; white-space: nowrap;
+}
+.mbh td { padding: 14px 20px; border-bottom: 1px solid #edf2f7; vertical-align: top; font-size: 12px; line-height: 1.65; }
+.mbh tr:last-child td { border-bottom: none; }
+.mbh td:first-child {
+  font-family: var(--font-h); font-weight: 700; font-size: 12px;
+  color: var(--navy); background: #f8faff; border-right: 1px solid #edf2f7;
+}
+.mbh td.td-make { color: #64748b; background: #fafafa; }
+.mbh td.td-buy  { color: #64748b; }
+.mbh td.td-hyb  { background: #f0f6ff; color: var(--navy); font-weight: 500; }
+.rtag {
+  display: inline-block; border-radius: 4px; padding: 2px 7px;
+  font-size: 10px; font-weight: 700; font-family: var(--font-h); margin-top: 4px;
+}
+.r-hi  { background: #fee2e2; color: #dc2626; }
+.r-md  { background: #fef3c7; color: #b45309; }
+.r-lo  { background: #d1fae5; color: #15803d; }
+.mbh tr.mbh-quote td { background: #f0f6ff; border-top: 2px solid var(--ix-blue); }
+.mbh tr.mbh-quote td:first-child { background: var(--ix-blue); color: #fff; font-size: 11px; letter-spacing: 1px; }
+.quote-text { font-size: 12px; color: var(--grey); font-style: italic; }
+.quote-attr { font-size: 10px; color: var(--ix-blue); font-weight: 600; font-style: normal; margin-top: 4px; font-family: var(--font-h); }
+.mbh td.td-hyb .quote-attr { color: var(--pm-teal); }
+
+/* ─── PLATFORM LAYER STACK ────────────────────── */
+.layerstack { display: flex; flex-direction: column; gap: 0; max-width: 880px; margin: 0 auto; }
+.ls-layer { padding: 20px 26px; }
+.ls-layer:first-child { border-radius: 12px 12px 0 0; }
+.ls-layer:last-child  { border-radius: 0 0 12px 12px; }
+
+.ls-customer  { background: var(--pm-teal-light); border: 2px solid var(--pm-teal); border-bottom: 1px solid rgba(42,174,138,0.3); }
+.ls-pm        { background: #fff5f0; border: 2px solid var(--pm-teal); border-bottom: 1px solid rgba(42,174,138,0.3); border-top: none; }
+.ls-ixcloud   { background: var(--ix-lblue2); border: 2px solid var(--ix-blue); border-bottom: 1px solid rgba(16,89,210,0.2); border-top: none; }
+.ls-edge      { background: #fff; border: 2px solid var(--ix-blue); border-top: none; }
+
+.ls-row { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
+.ls-badge {
+  font-family: var(--font-h); font-weight: 700; font-size: 9px;
+  letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; white-space: nowrap;
+}
+.ls-customer .ls-badge { background: var(--pm-teal); color: #fff; }
+.ls-pm .ls-badge       { background: var(--pm-navy); color: #fff; }
+.ls-ixcloud .ls-badge  { background: var(--ix-blue); color: #fff; }
+.ls-edge .ls-badge     { background: var(--ix-dark); color: #fff; }
+
+.ls-title {
+  font-family: var(--font-h); font-weight: 700; font-size: 14px;
+}
+.ls-customer .ls-title { color: #0d7a5f; }
+.ls-pm .ls-title       { color: var(--pm-navy); }
+.ls-ixcloud .ls-title  { color: var(--ix-blue); }
+.ls-edge .ls-title     { color: var(--ix-dark); }
+
+.ls-owns {
+  margin-left: auto; font-size: 9px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; border-radius: 3px; padding: 2px 8px;
+  font-family: var(--font-h); white-space: nowrap;
+}
+.ls-customer .ls-owns { background: var(--pm-teal-light); color: #0d7a5f; border: 1px solid var(--pm-teal); }
+.ls-pm .ls-owns       { background: #fff5f0; color: var(--pm-navy); border: 1px solid var(--pm-teal); }
+.ls-ixcloud .ls-owns  { background: var(--ix-lblue); color: var(--ix-blue); border: 1px solid #93c5fd; }
+.ls-edge .ls-owns     { background: #f0f6ff; color: var(--ix-dark); border: 1px solid #bfdbfe; }
+
+.ls-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.ls-chip {
+  border-radius: 6px; padding: 5px 12px; font-size: 11px;
+  font-family: var(--font-h); font-weight: 500;
+}
+.ls-customer .ls-chip { background: rgba(42,174,138,0.12); color: #0d7a5f; }
+.ls-pm .ls-chip       { background: rgba(30,38,84,0.07); color: var(--pm-navy); }
+.ls-ixcloud .ls-chip  { background: rgba(16,89,210,0.08); color: var(--ix-blue); }
+.ls-edge .ls-chip     { background: var(--ix-offwh); color: var(--text-dark); border: 1px solid var(--border); }
+
+.ls-connector {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 2px 0; z-index: 2; position: relative;
+}
+.ls-conn-line { width: 2px; height: 12px; background: var(--ix-blue); opacity: 0.3; }
+.ls-conn-arrow { width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid var(--ix-blue); opacity: 0.3; }
+.ls-conn-label { font-size: 9px; color: var(--grey); font-family: var(--font-m); margin: 3px 0; letter-spacing: 0.5px; }
+
+/* ─── ARCH DIAGRAM ────────────────────────────── */
+.arch-wrap { display: flex; flex-direction: column; max-width: 940px; margin: 0 auto; gap: 0; }
+.arch-layer { width: 100%; border-radius: 10px; padding: 20px 22px; }
+.arch-lbl {
+  font-family: var(--font-h); font-weight: 600; font-size: 10px;
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.arch-badge { padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: 700; }
+
+.lay-factory { background: #fff; border: 2px solid var(--border); }
+.lay-factory .arch-lbl { color: #475569; }
+.lay-factory .arch-badge { background: #e2e8f0; color: #475569; }
+
+.lay-edge { background: var(--ix-lblue2); border: 2px solid var(--ix-blue); }
+.lay-edge .arch-lbl { color: var(--ix-blue); }
+.lay-edge .arch-badge { background: var(--ix-blue); color: #fff; }
+
+.lay-cloud { background: var(--navy); border: 2px solid #2a3a7a; }
+.lay-cloud .arch-lbl { color: #fff; }
+.lay-cloud .arch-badge { background: var(--pm-teal); color: #fff; }
+
+.lay-pmx { background: var(--pm-teal-light); border: 2px solid var(--pm-teal); }
+.lay-pmx .arch-lbl { color: #0d7a5f; }
+.lay-pmx .arch-badge { background: var(--pm-teal); color: #fff; }
+
+.lay-user { background: #f0fdf4; border: 2px solid #4ade80; }
+.lay-user .arch-lbl { color: #16a34a; }
+.lay-user .arch-badge { background: #22c55e; color: #fff; }
+
+.conn { display: flex; flex-direction: column; align-items: center; padding: 3px 0; }
+.conn-line { width: 2px; height: 13px; background: var(--ix-blue); opacity: 0.35; }
+.conn-arr { width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid var(--ix-blue); opacity: 0.35; }
+.conn-lbl { font-size: 9px; color: var(--grey); font-family: var(--font-m); margin: 3px 0; background: var(--ix-offwh); padding: 1px 8px; border-radius: 4px; border: 1px solid var(--border); letter-spacing: 0.5px; }
+
+.mchip-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.mgroup { display: flex; flex-direction: column; gap: 6px; }
+.mglabel { font-size: 10px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; padding-bottom: 4px; border-bottom: 2px solid var(--border); }
+.mchips { display: flex; gap: 6px; flex-wrap: wrap; }
+.mchip {
+  background: #f8fafc; border: 1px solid var(--border); border-radius: 6px;
+  padding: 6px 10px; font-size: 11px; font-family: var(--font-h); font-weight: 500;
+  color: #334155; display: flex; align-items: center; gap: 5px;
+}
+.mchip .cd { width: 5px; height: 5px; border-radius: 50%; background: #22c55e; }
+.chip-r { background: var(--pm-navy); color: #fff; border-color: var(--pm-navy); font-weight: 600; }
+.chip-se { background: var(--pm-teal); color: #fff; border-color: var(--pm-teal); font-weight: 600; }
+
+.edge-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+.edev {
+  background: #fff; border: 2px solid var(--ix-blue); border-radius: 8px;
+  padding: 10px 14px; display: flex; align-items: center; gap: 10px;
+}
+.edev-icon {
+  width: 32px; height: 32px; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: #fff; font-weight: 800; font-family: var(--font-h);
+}
+.edev-name { font-family: var(--font-h); font-weight: 600; font-size: 12px; color: var(--navy); }
+.edev-sub { font-size: 10px; color: var(--grey); }
+.etags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.etag {
+  background: var(--ix-lblue2); color: var(--ix-blue);
+  border-radius: 4px; padding: 3px 8px; font-size: 10px; font-weight: 500; font-family: var(--font-m);
+}
+
+.cld-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.csvc {
+  flex: 1; min-width: 140px; background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 12px 14px;
+}
+.csvc-name {
+  font-family: var(--font-h); font-weight: 700; font-size: 12px;
+  color: #fff; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
+}
+.csvc-name .cd2 { width: 6px; height: 6px; border-radius: 50%; background: var(--pm-teal); }
+.csvc ul { list-style: none; }
+.csvc li { font-size: 11px; color: rgba(255,255,255,0.6); padding: 2px 0 2px 10px; position: relative; line-height: 1.5; }
+.csvc li::before { content: '›'; position: absolute; left: 0; color: var(--pm-teal); }
+
+.pmx-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.pmxsvc {
+  flex: 1; min-width: 150px; background: #fff;
+  border: 1px solid rgba(42,174,138,0.3); border-radius: 8px; padding: 12px 14px;
+}
+.pmxsvc-name {
+  font-family: var(--font-h); font-weight: 700; font-size: 12px;
+  color: var(--pm-navy); margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
+}
+.pmxsvc-name .cd3 { width: 6px; height: 6px; border-radius: 50%; background: var(--pm-teal); }
+.pmxsvc ul { list-style: none; }
+.pmxsvc li { font-size: 11px; color: var(--grey); padding: 2px 0 2px 10px; position: relative; }
+.pmxsvc li::before { content: '›'; position: absolute; left: 0; color: var(--pm-teal); font-weight: 700; }
+
+.usr-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.ucard {
+  flex: 1; min-width: 150px; background: #fff;
+  border: 2px solid #bbf7d0; border-radius: 8px; padding: 12px 14px;
+}
+.ucard-role { font-family: var(--font-h); font-weight: 700; font-size: 12px; color: #15803d; margin-bottom: 4px; }
+.ucard-desc { font-size: 11px; color: var(--grey); line-height: 1.55; margin-bottom: 8px; }
+.utags { display: flex; gap: 4px; flex-wrap: wrap; }
+.utag { border-radius: 3px; padding: 2px 6px; font-size: 10px; font-weight: 600; font-family: var(--font-h); }
+.utag-g { background: #d1fae5; color: #15803d; }
+.utag-t { background: var(--pm-teal-light); color: #0d7a5f; }
+.utag-b { background: var(--ix-lblue); color: var(--ix-blue); }
+
+.ctags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
+.ctag {
+  background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.18); border-radius: 3px;
+  padding: 2px 7px; font-size: 10px; font-weight: 600; font-family: var(--font-h);
+}
+
+/* ─── ZPI INTEGRATION ─────────────────────────── */
+.zpi-row { display: flex; gap: 16px; flex-wrap: wrap; }
+.zpi-card {
+  flex: 1; min-width: 260px; background: #fff; border: 1px solid var(--border);
+  border-radius: 12px; padding: 22px; position: relative;
+}
+.zpi-card.featured {
+  border-color: var(--ix-blue); border-width: 2px;
+  box-shadow: 0 4px 20px rgba(16,89,210,0.1);
+}
+.zpi-card.featured::before {
+  content: 'START HERE'; position: absolute; top: 0; right: 20px;
+  background: var(--ix-blue); color: #fff;
+  font-size: 9px; font-weight: 800; letter-spacing: 1.5px;
+  padding: 4px 10px; border-radius: 0 0 6px 6px; font-family: var(--font-h);
+}
+.zpi-itag {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+  border-radius: 4px; padding: 3px 9px; font-family: var(--font-h); margin-bottom: 12px;
+}
+.zi-rec  { background: var(--ix-blue); color: #fff; }
+.zi-via  { background: var(--ix-lblue); color: var(--ix-blue); }
+.zi-disc { background: var(--ix-offwh); color: #64748b; border: 1px solid var(--border); }
+.zpi-title { font-family: var(--font-h); font-weight: 700; font-size: 14px; color: var(--navy); margin-bottom: 8px; }
+.zpi-desc { font-size: 12px; color: var(--grey); line-height: 1.7; margin-bottom: 14px; }
+.zpi-steps { list-style: none; }
+.zpi-steps li { font-size: 11px; color: #475569; padding: 3px 0 3px 14px; position: relative; }
+.zpi-steps li::before { content: '→'; position: absolute; left: 0; color: var(--pm-teal); font-size: 10px; font-weight: 700; }
+
+/* ─── ROADMAP ─────────────────────────────────── */
+.roadmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px; }
+.phase {
+  background: #fff; border-radius: 14px; padding: 24px;
+  border: 1px solid var(--border); position: relative; overflow: hidden;
+}
+.phase::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 5px;
+}
+.ph1::after { background: linear-gradient(90deg, var(--ix-blue), #6fa3ff); }
+.ph2::after { background: linear-gradient(90deg, var(--pm-teal), #6fd9bc); }
+.ph3::after { background: linear-gradient(90deg, var(--ix-yellow), #fde68a); }
+
+.ph-label {
+  font-family: var(--font-h); font-weight: 700; font-size: 10px;
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;
+}
+.ph1 .ph-label { color: var(--ix-blue); }
+.ph2 .ph-label { color: var(--pm-teal); }
+.ph3 .ph-label { color: #b45309; }
+.ph-title { font-family: var(--font-h); font-weight: 700; font-size: 16px; color: var(--navy); margin-bottom: 4px; }
+.ph-time { font-size: 11px; color: var(--grey); margin-bottom: 16px; font-family: var(--font-h); }
+.ph-items { list-style: none; margin-bottom: 16px; }
+.ph-items li { font-size: 12px; color: var(--text-body); padding: 4px 0 4px 16px; position: relative; line-height: 1.55; border-bottom: 1px solid #f1f5f9; }
+.ph-items li:last-child { border: none; }
+.ph-items li::before { content: ''; position: absolute; left: 0; top: 10px; width: 7px; height: 7px; border-radius: 50%; }
+.ph1 .ph-items li::before { background: var(--ix-blue); }
+.ph2 .ph-items li::before { background: var(--pm-teal); }
+.ph3 .ph-items li::before { background: var(--ix-yellow); border: 1px solid #d97706; }
+.ph-outcome {
+  background: var(--ix-offwh); border-radius: 8px; padding: 12px 14px;
+  font-size: 12px; line-height: 1.65;
+}
+.ph1 .ph-outcome { border-left: 3px solid var(--ix-blue); }
+.ph2 .ph-outcome { border-left: 3px solid var(--pm-teal); }
+.ph3 .ph-outcome { border-left: 3px solid var(--ix-yellow); }
+.ph-outcome strong { display: block; font-family: var(--font-h); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; color: var(--navy); }
+
+/* ─── PILOT STEPS ─────────────────────────────── */
+.pilot-steps { display: flex; flex-direction: column; gap: 12px; max-width: 880px; }
+.ps {
+  display: flex; gap: 20px; align-items: flex-start;
+  background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; position: relative;
+}
+.ps.ps-now { border-color: var(--ix-blue); border-width: 2px; }
+.ps.ps-now::before {
+  content: 'START HERE'; position: absolute; top: -1px; right: 18px;
+  background: var(--ix-blue); color: #fff; font-size: 9px; font-weight: 800;
+  letter-spacing: 1.5px; padding: 4px 10px; border-radius: 0 0 6px 6px; font-family: var(--font-h);
+}
+.ps-num {
+  width: 38px; height: 38px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-h); font-weight: 800; font-size: 15px;
+  background: var(--ix-offwh); border: 2px solid var(--border); color: var(--grey);
+  flex-shrink: 0;
+}
+.ps.ps-now .ps-num { background: var(--ix-blue); color: #fff; border-color: var(--ix-blue); }
+.ps-content { flex: 1; }
+.ps-title { font-family: var(--font-h); font-weight: 700; font-size: 14px; color: var(--navy); margin-bottom: 5px; }
+.ps-desc { font-size: 12px; color: var(--grey); line-height: 1.7; margin-bottom: 10px; }
+.ps-checks { display: flex; gap: 8px; flex-wrap: wrap; }
+.psc { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #475569; font-family: var(--font-h); }
+.psc::before { content: '✓'; color: var(--pm-teal); font-weight: 800; font-size: 11px; }
+.psc.pend::before { content: '○'; color: #94a3b8; }
+.ps-dur {
+  font-size: 10px; font-weight: 700; color: var(--ix-blue);
+  background: var(--ix-lblue); padding: 4px 12px; border-radius: 20px;
+  font-family: var(--font-h); white-space: nowrap; flex-shrink: 0; align-self: center;
+}
+
+/* ─── STAT CARDS ──────────────────────────────── */
+.stats { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 36px; }
+.stat {
+  flex: 1; min-width: 150px; border-radius: 12px; padding: 20px;
+}
+.stat-navy { background: var(--navy); }
+.stat-teal { background: var(--pm-teal); }
+.stat-blue { background: var(--ix-blue); }
+.stat-val {
+  font-family: var(--font-h); font-weight: 800; font-size: 30px;
+  color: var(--ix-yellow); line-height: 1;
+}
+.stat-teal .stat-val, .stat-blue .stat-val { color: #fff; }
+.stat-lbl { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 5px; line-height: 1.5; }
+
+/* ─── WORKFLOW ────────────────────────────────── */
+.wf { display: flex; gap: 0; align-items: flex-start; }
+.ws { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; }
+.ws:not(:last-child)::after {
+  content: ''; position: absolute; top: 20px; left: calc(50% + 22px);
+  width: calc(100% - 44px); height: 2px;
+  background: linear-gradient(to right, var(--ix-blue), var(--pm-teal));
+}
+.ws-n {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--ix-blue); color: #fff;
+  font-family: var(--font-h); font-weight: 800; font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 1; flex-shrink: 0; margin-bottom: 12px;
+}
+.ws-n.n-teal { background: var(--pm-teal); }
+.ws-n.n-navy { background: var(--navy); }
+.ws-n.n-yellow { background: var(--ix-yellow); color: var(--navy); }
+.ws-lbl { font-family: var(--font-h); font-weight: 700; font-size: 12px; color: var(--navy); margin-bottom: 4px; line-height: 1.3; }
+.ws-desc { font-size: 11px; color: var(--grey); line-height: 1.55; padding: 0 6px; }
+
+/* ─── CALLOUT CARDS ───────────────────────────── */
+.callouts { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+.callout {
+  flex: 1; min-width: 240px; display: flex; gap: 14px; align-items: flex-start;
+  background: #fff; border-radius: 10px; padding: 16px 18px;
+  border: 1px solid var(--border); border-left: 4px solid var(--pm-teal);
+}
+.callout.c-blue { border-left-color: var(--ix-blue); }
+.callout.c-yellow { border-left-color: var(--ix-yellow); }
+.callout-icon { font-size: 20px; flex-shrink: 0; }
+.callout-text { font-size: 12px; color: var(--grey); line-height: 1.7; }
+.callout-text strong { color: var(--navy); display: block; margin-bottom: 3px; }
+
+/* ─── NEXT STEPS ──────────────────────────────── */
+.nsgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.nscard {
+  background: #fff; border-radius: 12px; padding: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.ns-num {
+  width: 30px; height: 30px; border-radius: 7px;
+  background: var(--ix-yellow); color: var(--navy);
+  font-family: var(--font-h); font-weight: 800; font-size: 14px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
+}
+.ns-action { font-family: var(--font-h); font-weight: 700; font-size: 13px; color: var(--navy); margin-bottom: 6px; line-height: 1.4; }
+.ns-desc { font-size: 11px; color: var(--grey); margin-bottom: 10px; line-height: 1.65; }
+.ns-owner { font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: var(--pm-teal); font-family: var(--font-h); }
+
+/* ─── CTA ─────────────────────────────────────── */
+.cta-bar {
+  background: var(--pm-navy);
+  padding: 36px 48px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+  border-top: 4px solid var(--pm-teal);
+}
+.cta-copy {}
+.cta-t { font-family: var(--font-h); font-weight: 800; font-size: 20px; color: #fff; }
+.cta-s { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 4px; max-width: 500px; }
+.cta-btns { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.btn-p {
+  background: var(--pm-teal); color: #fff; border: none;
+  font-family: var(--font-h); font-weight: 700; font-size: 13px;
+  padding: 12px 24px; border-radius: 7px; cursor: pointer; text-decoration: none; display: inline-block;
+}
+.btn-s {
+  background: transparent; color: rgba(255,255,255,0.7); 
+  border: 2px solid rgba(255,255,255,0.2);
+  font-family: var(--font-h); font-weight: 600; font-size: 13px;
+  padding: 12px 24px; border-radius: 7px; cursor: pointer; text-decoration: none; display: inline-block;
+}
+
+/* ─── FOOTER ──────────────────────────────────── */
+.ftr {
+  background: var(--ix-dark); padding: 22px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.ftr-l { display: flex; align-items: center; gap: 16px; }
+.ftr-certs { display: flex; gap: 7px; }
+.fcert {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px; padding: 4px 8px; font-size: 10px; font-family: var(--font-h);
+  font-weight: 500; color: rgba(255,255,255,0.4);
+}
+.ftr-r { font-size: 11px; color: rgba(255,255,255,0.3); text-align: right; line-height: 1.6; }
+
+@media (max-width: 720px) {
+  .sec, .hdr, .hero { padding-left: 20px; padding-right: 20px; }
+  .wf { flex-direction: column; gap: 20px; }
+  .ws::after { display: none; }
+  .cta-bar { flex-direction: column; gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══════════════════════════════════════ -->
+<header class="hdr">
+  <div class="hdr-l">
+    <!-- IXON Logo -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 235.277 83.92" style="height:36px;width:auto;fill:#fff;">
+      <g transform="translate(-7440 18520)">
+        <path d="M76.5-12.667l-.173.227L57.837-35.4a10.582,10.582,0,0,1,0-13.16l5.934-7.359.173.186C67.8-51.6,71.451-47.347,74.73-43.08l.747.987c.253.319.493.652.733,1,6.147,8.786,6.267,20.212.294,28.425Zm-2.4,2.8a.369.369,0,0,1-.254.107.362.362,0,0,1-.2-.068l-.013-.013-1.16-.934-3.92-3.159L50.477-28.494A13.582,13.582,0,0,0,42-31.454a13.583,13.583,0,0,0-8.48,2.96L15.358-13.866l-4.707,3.8-.306.24a.338.338,0,0,1-.213.068.322.322,0,0,1-.24-.094l-.014-.013a.311.311,0,0,1-.026-.427v-.026l.254-.294,3.066-3.827.734-.893,14.613-18.16a13.591,13.591,0,0,0,0-16.96L12.877-69.88,10.037-73.4l-.173-.227-.013-.013a.364.364,0,0,1,.04-.453.329.329,0,0,1,.453-.015l.227.175,3.519,2.84L33.518-55.467A13.518,13.518,0,0,0,42-52.494a13.517,13.517,0,0,0,8.48-2.973L66.944-68.72l6.44-5.2.253-.188a.347.347,0,0,1,.467.015h.013a.362.362,0,0,1,.027.466c0,.013,0,.013-.013.013l-.187.254-5.2,6.44L55.491-50.453a13.571,13.571,0,0,0,0,16.947L70.037-15.413l3.16,3.919.934,1.16a.348.348,0,0,1-.027.468ZM71.317-7.48A23.131,23.131,0,0,1,57.544-3.054a25.442,25.442,0,0,1-14.68-4.72c-.333-.227-.667-.466-.987-.72L40.9-9.24c-4.307-3.32-8.573-6.946-12.667-10.786l-.187-.173,7.36-5.934A10.506,10.506,0,0,1,42-28.441a10.511,10.511,0,0,1,6.587,2.307L71.544-7.64ZM39.064-6.454a25.578,25.578,0,0,1-12.653,3.4A23.09,23.09,0,0,1,12.678-7.467l-.227-.173L25.664-18.293l.133.133c4.266,4.027,8.746,7.841,13.293,11.347l.254.186Zm-31.4-5.972-.16-.227C2.011-20.16,1.611-30.52,6.478-39.026l.173-.293.214.28c3.507,4.546,7.307,9.013,11.32,13.266l.133.134ZM7.5-71.293l.16-.24L26.158-48.56a10.545,10.545,0,0,1,0,13.173l-5.933,7.36-.173-.187c-3.813-4.079-7.454-8.333-10.8-12.667l-.733-.972c-.254-.32-.493-.641-.733-1C1.611-51.639,1.5-63.067,7.5-71.293Zm5.187-5.187a23.112,23.112,0,0,1,13.747-4.427,25.506,25.506,0,0,1,14.693,4.733c.333.227.653.467.987.72l.973.747C47.344-71.426,51.6-67.8,55.757-63.92l.187.173-7.36,5.933A10.581,10.581,0,0,1,42-55.52a10.576,10.576,0,0,1-6.586-2.293L12.451-76.319Zm32.253-1a25.267,25.267,0,0,1,12.614-3.414A23.287,23.287,0,0,1,71.317-76.48l.227.16L58.317-65.667l-.133-.133c-4.307-4.053-8.773-7.867-13.267-11.32l-.267-.2Zm31.4,5.96.16.227a24.242,24.242,0,0,1,1.014,26.36l-.187.28-.187-.267c-3.467-4.493-7.28-8.946-11.32-13.241l-.133-.133Zm2.973,29.667-.066-.107.066-.12a28.6,28.6,0,0,0,3.467-7.494,27.692,27.692,0,0,0,1.16-8.959,26.288,26.288,0,0,0-6.48-16.4c-.147-.147-.28-.307-.413-.467-.227-.253-.467-.507-.72-.773l-.173-.146c-.387-.4-.8-.773-1.2-1.121A26.21,26.21,0,0,0,57.584-83.92,28.408,28.408,0,0,0,42.1-79.293l-.12.066-.12-.066A28.519,28.519,0,0,0,26.4-83.92,26.2,26.2,0,0,0,9.064-77.453c-.414.346-.826.733-1.227,1.134l-.187.186c-.4.387-.773.8-1.12,1.2-7.973,9.026-8.706,22.226-1.866,32.84l.08.12-.08.12C-2.163-31.24-1.429-18.054,6.518-9.027c.359.413.733.812,1.106,1.186l.227.227c.387.386.786.76,1.186,1.107A26.262,26.262,0,0,0,26.424,0,28.589,28.589,0,0,0,41.877-4.64L42-4.72l.12.081A28.534,28.534,0,0,0,57.558-.014,26.224,26.224,0,0,0,74.944-6.507c.414-.359.813-.733,1.214-1.12l.186-.2c.4-.372.773-.8,1.133-1.186,7.934-9.04,8.68-22.226,1.84-32.839" transform="translate(7440 -18436.08)"/>
+        <path d="M156.584-60.92H145.09l-8.373,11.44L128.6-60.92H116.984l14.04,19-14.04,18.947h11.68l8.053-11,8.013,11h11.64L142.557-41.68,156.584-60.92" transform="translate(7440 -18436.08)"/>
+        <path d="M183.517-33.494a8.783,8.783,0,0,1-7.067,3.04,8.639,8.639,0,0,1-7.067-3.04c-1.707-2-2.547-4.826-2.547-8.426s.853-6.4,2.56-8.414a8.668,8.668,0,0,1,7.053-3.013,8.752,8.752,0,0,1,7.08,3q2.54,3,2.547,8.427c0,3.6-.853,6.426-2.56,8.426Zm7.613-22.72q-5.48-5.379-14.613-5.372-9.22,0-14.707,5.372T156.33-41.92q0,8.9,5.48,14.239t14.707,5.346q9.22,0,14.653-5.333T196.6-41.92q0-8.941-5.467-14.294" transform="translate(7440 -18436.08)"/>
+        <path d="M231.61-57.693C229.183-59.84,225.1-60.92,219.4-60.92h-18.84v37.947h10.027V-52.586h8.053c2.653,0,4.413.426,5.293,1.267s1.32,2.693,1.32,5.519v22.827h10.027V-47.026q0-7.461-3.667-10.667" transform="translate(7440 -18436.08)"/>
+        <path d="M104.172-60.922V-29.27c.042,2.156,1.547,6.031,7.561,6.29h2.955V-60.922H104.172" transform="translate(7440 -18436.08)"/>
+      </g>
+    </svg>
+
+    <div class="hdr-div"></div>
+
+    <!-- ProMach Logo SVG -->
+    <svg viewBox="0 0 200 40" style="height:34px;" xmlns="http://www.w3.org/2000/svg">
+      <!-- Icon: two bars representing ProMach mark -->
+      <rect x="0" y="4" width="10" height="32" fill="#2AAE8A" rx="2"/>
+      <rect x="14" y="10" width="10" height="26" fill="#fff" rx="2"/>
+      <!-- PROMACH text -->
+      <text x="30" y="29" font-family="Poppins, Arial, sans-serif" font-weight="800" font-size="22" fill="#ffffff" letter-spacing="-0.5">PROMACH</text>
+      <text x="30" y="39" font-family="Poppins, Arial, sans-serif" font-weight="300" font-size="7.5" fill="rgba(255,255,255,0.4)" letter-spacing="2.5">PACKAGING SOLUTIONS</text>
+    </svg>
+
+    <div class="hdr-div"></div>
+    <div class="hdr-badge">Digital Service Platform · Strategic Brief</div>
+  </div>
+  <div class="hdr-tag">Confidential</div>
+</header>
+
+<!-- ═══ HERO ══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-eyebrow">ProMach × IXON Cloud — Partnership Strategy</div>
+  <h1>ProMach Sells <em>OEE.</em><br>This is the Infrastructure<br>That Makes It <strong>Deliverable.</strong></h1>
+  <p class="hero-sub">
+    Your CPG customers want predictive maintenance, proactive service, and machine visibility. Your team knows how to build it. What's missing is the connectivity layer that ties 20,000 machines per year — across 50+ brands — into a single, secure, ProMach-branded digital platform. That layer already exists.
+  </p>
+  <div class="hero-pills">
+    <div class="hp"><span class="dot-teal"></span>Remote Access — One Standard Across All Brands</div>
+    <div class="hp"><span class="dot-yellow"></span>ProMach-Branded Customer Portal (MSConnect)</div>
+    <div class="hp"><span class="dot-blue"></span>ZPI Integration Path — Parallel or Converged</div>
+    <div class="hp"><span class="dot-teal"></span>Predictive Maintenance Foundation</div>
+    <div class="hp"><span class="dot-yellow"></span>Hybrid Approach — No SaaS Build Required</div>
+  </div>
+</section>
+
+<!-- ═══ THREE TRUTHS ══════════════════════════════════ -->
+<section class="sec sec-white">
+  <div class="sec-eyebrow">The Strategic Context</div>
+  <div class="sec-title">Three Truths About ProMach's Digital Moment</div>
+  <div class="sec-desc">These aren't hypotheses. They come directly from your own team — and they define why this decision matters now, not next year.</div>
+
+  <div class="truths">
+
+    <div class="truth-card t1">
+      <div class="truth-num">01</div>
+      <div class="truth-title">Your Customers Are Already Asking for This</div>
+      <p class="truth-body">Your own Voice of Customer research put predictive maintenance as the #1 CPG priority for the next two years — ahead of every other digital initiative. The demand signal is clear. The question isn't whether to build a connected machine offering. It's how fast you can deliver one your customers will pay for.</p>
+      <div class="truth-cite">"The number one thing CPG customers wanted in the next two years was predictive maintenance." — Pete Carpino, ProMach Group</div>
+    </div>
+
+    <div class="truth-card t2">
+      <div class="truth-num">02</div>
+      <div class="truth-title">Building It In-House Would Take Three Years — Minimum</div>
+      <p class="truth-body">ProMach has strong software engineers who know the machines. What you don't have — and would need to acquire — is an entire SaaS infrastructure team: cloud architects, cybersecurity specialists, data engineers, platform ops. That's 3+ years and a significant capital commitment, competing with teams whose only job is industrial IoT.</p>
+      <div class="truth-cite">"That's a three-year development if we want to do SaaS ourselves — and a big investment." — Bret Ranc, ProMach</div>
+    </div>
+
+    <div class="truth-card t3">
+      <div class="truth-num">03</div>
+      <div class="truth-title">Your Real Advantage Is Machine Intelligence — Not Infrastructure</div>
+      <p class="truth-body">ProMach owns something no software vendor can replicate: deep knowledge of how your machines actually perform, fail, and recover in the field — across every brand, every vertical, every customer type. That proprietary intelligence is your competitive moat. The opportunity is to build it on top of infrastructure that already works, so your engineers spend their time on differentiation, not plumbing.</p>
+      <div class="truth-cite">"We can do this on our own — but I'd much prefer to be in the channel with the customer as they're doing that measurement." — Andy Moeder, ProMach</div>
+    </div>
+
+  </div>
+
+  <!-- Omnia Case Study -->
+  <div class="omnia">
+    <div class="omnia-play">▶</div>
+    <div>
+      <div class="omnia-label">Reference Customer · IXON Innovation Day 2024</div>
+      <div class="omnia-title">Omnia Technologies: Why We Chose to Partner Instead of Build</div>
+      <p class="omnia-body">Omnia Technologies is a multi-brand platform serving automation and bottling for beverages, spirits, wine, dairy, and pharma — a portfolio structure nearly identical to ProMach. Their Group CI&amp;DO faced the exact same Make vs. Buy decision, chose to partner with IXON as the infrastructure layer, and used it to standardize machine data access, remote support, and customer-facing services across all of their brands. The result was a unified digital standard across the portfolio — with each brand retaining its own identity on top of shared infrastructure.</p>
+      <div class="omnia-mirror">This is the ProMach playbook. Same structure. Same challenge. Same answer.</div>
+      <a class="omnia-link" href="https://www.youtube.com/watch?v=-E1sBRX0p3c" target="_blank">▶ Watch the Omnia Innovation Day Case Study →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MAKE BUY HYBRID ════════════════════════════════ -->
+<section class="sec sec-offwh">
+  <div class="sec-eyebrow">Decision Framework</div>
+  <div class="sec-title">Make, Buy, or Hybrid — The Data Is Clear</div>
+  <div class="sec-desc">Every dimension of this decision points the same direction. The Hybrid approach — buying proven infrastructure, building proprietary intelligence on top — consistently outperforms across time, cost, security, and scalability. This isn't a vendor pitch. It's what machine builders in your sector have learned the hard way.</div>
+
+  <div class="mbh-outer">
+    <table class="mbh">
+      <thead>
+        <tr>
+          <th class="hdr-crit">Criterion</th>
+          <th class="hdr-make">🔨 Build In-House</th>
+          <th class="hdr-buy">🛒 Buy Off-Shelf</th>
+          <th class="hdr-hyb">⚙ Hybrid — IXON</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Time to Market</td>
+          <td class="td-make">12–36 months to launch<br><span class="rtag r-hi">High delay risk</span></td>
+          <td class="td-buy">2–6 months, but limited to vendor roadmap<br><span class="rtag r-md">Locked in</span></td>
+          <td class="td-hyb">Pilot live in weeks. Full rollout 6–18 months.<br><span class="rtag r-lo">Fastest path to value</span></td>
+        </tr>
+        <tr>
+          <td>Investment</td>
+          <td class="td-make">Millions in dev, hiring, and ongoing maintenance. 20% of machine builders who built in-house exceeded budget.<br><span class="rtag r-hi">Unpredictable TCO</span></td>
+          <td class="td-buy">Low upfront, but recurring licensing + no competitive differentiation<br><span class="rtag r-md">No moat</span></td>
+          <td class="td-hyb">Predictable hardware + SaaS model. ProMach controls customer pricing and captures margin on differentiation layer.<br><span class="rtag r-lo">Scalable, known cost</span></td>
+        </tr>
+        <tr>
+          <td>Customization</td>
+          <td class="td-make">Full control — but only your expertise. Knowledge transfer risk if developers leave.<br><span class="rtag r-md">Single point of failure</span></td>
+          <td class="td-buy">Minimal — fixed capabilities, no white-label<br><span class="rtag r-hi">No ProMach brand equity</span></td>
+          <td class="td-hyb">IXON handles connectivity infrastructure. ProMach builds proprietary OEE models, predictive algorithms, and branded portal on top — unlimited SDK/API access.<br><span class="rtag r-lo">Maximum differentiation</span></td>
+        </tr>
+        <tr>
+          <td>Security</td>
+          <td class="td-make">Full ownership, but hardest to maintain. 10% of builders who built in-house couldn't keep up with evolving threats.<br><span class="rtag r-hi">Compliance burden heavy</span></td>
+          <td class="td-buy">Vendor-managed, but 20% reported security gaps in practice<br><span class="rtag r-md">Vendor-dependent</span></td>
+          <td class="td-hyb">ISO 27001 · IEC 62443-4-2 · SOC 2 (in progress). Shared responsibility model. Only 4% of Hybrid builders reported security gaps.<br><span class="rtag r-lo">Enterprise-grade, proven</span></td>
+        </tr>
+        <tr>
+          <td>Scalability</td>
+          <td class="td-make">Requires dedicated re-engineering for each new brand or geography<br><span class="rtag r-hi">Slows as you grow</span></td>
+          <td class="td-buy">Pre-built scale, but can't differentiate by brand or machine type<br><span class="rtag r-md">Generic</span></td>
+          <td class="td-hyb">150,000+ gateways deployed globally. Per-brand customization on shared infrastructure. Built for multi-brand OEM portfolios at scale.<br><span class="rtag r-lo">Built for ProMach's model</span></td>
+        </tr>
+        <tr class="mbh-quote">
+          <td>From ProMach</td>
+          <td class="td-make">
+            <div class="quote-text">"If we want to do SaaS ourselves, that's a 3-year development and a big investment."</div>
+            <div class="quote-attr">— Bret Ranc, ProMach</div>
+          </td>
+          <td class="td-buy">
+            <div class="quote-text">"Buy at scale is expensive and we still have to teach it what we need it to do."</div>
+            <div class="quote-attr">— Andy Moeder, ProMach</div>
+          </td>
+          <td class="td-hyb">
+            <div class="quote-text">"This is a little bit the best of both worlds. You guys are a bit of an easy button."</div>
+            <div class="quote-attr" style="color:var(--pm-teal)">— Bret Ranc, ProMach</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══ PLATFORM LAYER MODEL ══════════════════════════ -->
+<section class="sec sec-white">
+  <div class="sec-eyebrow">Platform Model</div>
+  <div class="sec-title">How the Layers Work — What ProMach Owns vs. What IXON Provides</div>
+  <div class="sec-desc">Think of this the way you'd think of AWS or Twilio. You wouldn't build your own cellular network to send messages to customers. You wouldn't build your own data center to host software. IXON is the industrial connectivity infrastructure — and ProMach builds the intelligence that only ProMach can build on top of it.</div>
+
+  <div class="layerstack" style="max-width:860px;">
+
+    <div class="ls-layer ls-customer">
+      <div class="ls-row">
+        <span class="ls-badge">Layer 4 · Top</span>
+        <span class="ls-title">Customer Experience Layer</span>
+        <span class="ls-owns">CPG Customer Sees</span>
+      </div>
+      <div class="ls-chips">
+        <span class="ls-chip">Live OEE Dashboards</span>
+        <span class="ls-chip">Proactive Alarm Alerts</span>
+        <span class="ls-chip">AI Self-Service Troubleshooting</span>
+        <span class="ls-chip">Parts & Service Requests</span>
+        <span class="ls-chip">ProMach-Branded Portal</span>
+      </div>
+    </div>
+
+    <div class="ls-layer ls-pm">
+      <div class="ls-row">
+        <span class="ls-badge">Layer 3 · ProMach</span>
+        <span class="ls-title">ProMach Intelligence &amp; Brand Layer</span>
+        <span class="ls-owns">ProMach Builds &amp; Owns</span>
+      </div>
+      <div class="ls-chips">
+        <span class="ls-chip">Proprietary OEE Calculations</span>
+        <span class="ls-chip">ZPI Integration</span>
+        <span class="ls-chip">Predictive Maintenance Models</span>
+        <span class="ls-chip">Machine-Specific Diagnostics</span>
+        <span class="ls-chip">Cross-Brand Benchmarking</span>
+        <span class="ls-chip">Track &amp; Trace</span>
+        <span class="ls-chip">ProMach Brand &amp; UI Identity</span>
+      </div>
+    </div>
+
+    <div class="ls-layer ls-ixcloud">
+      <div class="ls-row">
+        <span class="ls-badge">Layer 2 · IXON</span>
+        <span class="ls-title">IXON Cloud — Connectivity &amp; Data Infrastructure</span>
+        <span class="ls-owns">IXON Provides &amp; Maintains</span>
+      </div>
+      <div class="ls-chips">
+        <span class="ls-chip">Secure Remote Access (IEC 62443)</span>
+        <span class="ls-chip">PLC Tag Data Pipeline</span>
+        <span class="ls-chip">InfluxDB Time-Series Store</span>
+        <span class="ls-chip">Fleet Management (All Brands)</span>
+        <span class="ls-chip">White-Label MSConnect Portal</span>
+        <span class="ls-chip">REST API + App Engine SDK</span>
+        <span class="ls-chip">Access Approval Governance</span>
+        <span class="ls-chip">99.87% SLA · ISO 27001</span>
+      </div>
+    </div>
+
+    <div class="ls-layer ls-edge">
+      <div class="ls-row">
+        <span class="ls-badge">Layer 1 · Hardware</span>
+        <span class="ls-title">IXrouter3 / SecureEdge Pro — Machine Gateway</span>
+        <span class="ls-owns">IXON Hardware · ProMach Deploys</span>
+      </div>
+      <div class="ls-chips">
+        <span class="ls-chip">DIN-Rail · Plug &amp; Connect</span>
+        <span class="ls-chip">Outbound-Only HTTPS (Port 443)</span>
+        <span class="ls-chip">PLC / HMI / OPC-UA / S7 / Modbus</span>
+        <span class="ls-chip">SecureEdge Pro: Docker · Node-RED · Edge ML</span>
+        <span class="ls-chip">MQTT Feed to External Platforms</span>
+        <span class="ls-chip">No Open Inbound Firewall Rules</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ FULL ARCHITECTURE ══════════════════════════════ -->
+<section class="sec sec-offwh">
+  <div class="sec-eyebrow">Platform Architecture</div>
+  <div class="sec-title">Five Layers — Factory Floor to CPG Customer Portal</div>
+  <div class="sec-desc">Every machine ProMach ships can have an IXrouter3 installed in minutes. Every gateway connects back to a single ProMach-branded cloud tenant, visible to the service team, accessible by the customer, and governed with enterprise-grade access controls.</div>
+
+  <div class="arch-wrap">
+
+    <!-- Layer 1: Factory -->
+    <div class="arch-layer lay-factory">
+      <div class="arch-lbl"><span class="arch-badge">Layer 1</span> Factory Floor — ProMach Machine Fleet</div>
+      <div class="mchip-row">
+        <div class="mgroup">
+          <div class="mglabel">Filling &amp; Processing</div>
+          <div class="mchips">
+            <div class="mchip"><span class="cd"></span>Filler (PLC)</div>
+            <div class="mchip"><span class="cd"></span>Capper (HMI)</div>
+            <div class="mchip chip-r">IXrouter3</div>
+          </div>
+        </div>
+        <div class="mgroup">
+          <div class="mglabel">Labeling &amp; Coding</div>
+          <div class="mchips">
+            <div class="mchip"><span class="cd"></span>Labeler (PLC)</div>
+            <div class="mchip"><span class="cd"></span>Print-Apply</div>
+            <div class="mchip chip-r">IXrouter3</div>
+          </div>
+        </div>
+        <div class="mgroup">
+          <div class="mglabel">Integrated Lines</div>
+          <div class="mchips">
+            <div class="mchip"><span class="cd"></span>Line Controller</div>
+            <div class="mchip"><span class="cd"></span>Palletizer</div>
+            <div class="mchip chip-se">SecureEdge Pro</div>
+          </div>
+        </div>
+        <div class="mgroup">
+          <div class="mglabel">Pharma / Regulated</div>
+          <div class="mchips">
+            <div class="mchip"><span class="cd"></span>Blister Pack (PLC)</div>
+            <div class="mchip"><span class="cd"></span>Serialization HMI</div>
+            <div class="mchip chip-r">IXrouter3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conn">
+      <div class="conn-line"></div>
+      <div class="conn-lbl">OUTBOUND HTTPS / 443 — No inbound firewall rules required · Encrypted from machine to cloud</div>
+      <div class="conn-arr"></div>
+    </div>
+
+    <!-- Layer 2: Edge -->
+    <div class="arch-layer lay-edge">
+      <div class="arch-lbl"><span class="arch-badge">Layer 2</span> Edge Layer — IXrouter3 &amp; SecureEdge Pro Gateways</div>
+      <div class="edge-row">
+        <div class="edev">
+          <div class="edev-icon" style="background:var(--pm-navy);">IX</div>
+          <div>
+            <div class="edev-name">IXrouter3</div>
+            <div class="edev-sub">IEC 62443-4-2 · DIN-rail · Plug &amp; Connect</div>
+          </div>
+        </div>
+        <div class="edev">
+          <div class="edev-icon" style="background:var(--pm-teal);">SE</div>
+          <div>
+            <div class="edev-name">SecureEdge Pro</div>
+            <div class="edev-sub">Docker · Node-RED · InfluxDB · Edge ML</div>
+          </div>
+        </div>
+        <div style="flex:1">
+          <div class="etags">
+            <span class="etag">DirectVPN Tunnel</span>
+            <span class="etag">PLC Tag Collection</span>
+            <span class="etag">OPC-UA · Modbus · S7</span>
+            <span class="etag">Outbound-only · No open ports</span>
+            <span class="etag">MQTT to external platforms</span>
+            <span class="etag">Edge compute / Docker</span>
+            <span class="etag">Remote firmware upgrade</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conn">
+      <div class="conn-line"></div>
+      <div class="conn-lbl">SSL/TLS · x509 · Azure-hosted · Encrypted session · Per-machine scoped access</div>
+      <div class="conn-arr"></div>
+    </div>
+
+    <!-- Layer 3: IXON Cloud -->
+    <div class="arch-layer lay-cloud">
+      <div class="arch-lbl"><span class="arch-badge">Layer 3</span> IXON Cloud — Connectivity &amp; Data Platform</div>
+      <div class="cld-row">
+        <div class="csvc">
+          <div class="csvc-name"><span class="cd2"></span>Remote Access</div>
+          <ul><li>Request &amp; approval workflow</li><li>Time-boxed sessions</li><li>LAN segmentation per vendor</li><li>Full audit trail</li></ul>
+        </div>
+        <div class="csvc">
+          <div class="csvc-name"><span class="cd2"></span>Machine Insights</div>
+          <ul><li>PLC tag ingestion</li><li>InfluxDB time-series</li><li>No-code dashboard builder</li><li>Alarms &amp; notifications</li></ul>
+        </div>
+        <div class="csvc">
+          <div class="csvc-name"><span class="cd2"></span>Fleet Management</div>
+          <ul><li>All machines, all brands</li><li>Custom metadata fields</li><li>Device registration profiles</li><li>Firmware lifecycle</li></ul>
+        </div>
+        <div class="csvc">
+          <div class="csvc-name"><span class="cd2"></span>Platform SDK + API</div>
+          <ul><li>Bi-directional REST API</li><li>App Engine (custom UI)</li><li>MQTT broker / feed-out</li><li>developer.ixon.cloud</li></ul>
+        </div>
+        <div class="csvc" style="min-width:110px">
+          <div class="csvc-name"><span class="cd2"></span>Trust &amp; Compliance</div>
+          <div class="ctags">
+            <span class="ctag">ISO 27001</span>
+            <span class="ctag">IEC 62443</span>
+            <span class="ctag">SOC 2 (WIP)</span>
+            <span class="ctag">99.87% SLA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conn">
+      <div class="conn-line"></div>
+      <div class="conn-lbl">API / SDK integration · MQTT data feed · MSConnect white-label tenant configuration</div>
+      <div class="conn-arr"></div>
+    </div>
+
+    <!-- Layer 4: ProMach expertise -->
+    <div class="arch-layer lay-pmx">
+      <div class="arch-lbl"><span class="arch-badge">Layer 4</span> ProMach Intelligence &amp; Brand Layer — Built by ProMach on IXON Infrastructure</div>
+      <div class="pmx-row">
+        <div class="pmxsvc">
+          <div class="pmxsvc-name"><span class="cd3"></span>ProMach OEE Engine</div>
+          <ul><li>Proprietary yield calculations</li><li>ZPI integration (MQTT/API)</li><li>Cross-brand benchmarking</li><li>Machine-specific KPIs</li></ul>
+        </div>
+        <div class="pmxsvc">
+          <div class="pmxsvc-name"><span class="cd3"></span>Predictive Maintenance</div>
+          <ul><li>Alarm-to-action workflows</li><li>AI-assisted diagnostics</li><li>Proactive service dispatch</li><li>Parts recommendation</li></ul>
+        </div>
+        <div class="pmxsvc">
+          <div class="pmxsvc-name"><span class="cd3"></span>Self-Service Enablement</div>
+          <ul><li>AI document assistant</li><li>Schematic-based troubleshoot</li><li>How-to content library</li><li>Track &amp; trace module</li></ul>
+        </div>
+        <div class="pmxsvc">
+          <div class="pmxsvc-name"><span class="cd3"></span>ProMach Brand Portal</div>
+          <ul><li>MSConnect white-label</li><li>ProMach-branded UI</li><li>Brand or corporate view</li><li>Aftermarket integration</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="conn">
+      <div class="conn-line"></div>
+      <div class="conn-lbl">Per-session encrypted tunnel · Scoped to specific machine · Branded customer experience delivered</div>
+      <div class="conn-arr"></div>
+    </div>
+
+    <!-- Layer 5: Users -->
+    <div class="arch-layer lay-user">
+      <div class="arch-lbl"><span class="arch-badge">Layer 5</span> User Layer — ProMach Service, CPG Customers &amp; Vendor Access</div>
+      <div class="usr-row">
+        <div class="ucard">
+          <div class="ucard-role">🔧 ProMach Service Engineers</div>
+          <div class="ucard-desc">Full remote access to all machines across all brands from one login. Proactive alerts. DirectVPN or one-click HMI panel access.</div>
+          <div class="utags">
+            <span class="utag utag-g">All brands</span>
+            <span class="utag utag-g">DirectVPN</span>
+            <span class="utag utag-g">EasyControl</span>
+          </div>
+        </div>
+        <div class="ucard">
+          <div class="ucard-role">🏭 CPG Customer Operations</div>
+          <div class="ucard-desc">ProMach-branded portal with live OEE, alarm history, and AI troubleshooting. Proactive contact before downtime — not after.</div>
+          <div class="utags">
+            <span class="utag utag-t">Their machines only</span>
+            <span class="utag utag-t">OEE dashboards</span>
+            <span class="utag utag-t">AI diagnostics</span>
+          </div>
+        </div>
+        <div class="ucard">
+          <div class="ucard-role">🔩 Third-Party Vendors</div>
+          <div class="ucard-desc">Request-only access. Approved by ProMach. Scoped to specific machine components. Auto-expires. Full session log retained.</div>
+          <div class="utags">
+            <span class="utag utag-b">Approval required</span>
+            <span class="utag utag-b">IP-restricted</span>
+            <span class="utag utag-b">Time-limited</span>
+          </div>
+        </div>
+        <div class="ucard">
+          <div class="ucard-role">📊 ProMach R&amp;D / Product</div>
+          <div class="ucard-desc">Fleet-level data access for machine improvement, competitive benchmarking, warranty analytics, and predictive model training.</div>
+          <div class="utags">
+            <span class="utag utag-g">Fleet analytics</span>
+            <span class="utag utag-g">Cross-brand data</span>
+            <span class="utag utag-b">API access</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ ZPI STRATEGY ══════════════════════════════════ -->
+<section class="sec sec-white">
+  <div class="sec-eyebrow">ZPI Integration Strategy</div>
+  <div class="sec-title">IXON and ZPI Are Additive — Not Competing</div>
+  <div class="sec-desc">ZPI's proprietary logic is a ProMach asset — not a liability to migrate away from. The question for Chris and the technical team is simply: where does IXON's connectivity infrastructure complement ZPI's analytics capability? Three integration paths, one right answer to start.</div>
+
+  <div class="zpi-row">
+
+    <div class="zpi-card featured">
+      <div class="zpi-itag zi-rec">✦ Recommended Starting Point</div>
+      <div class="zpi-title">Path A — IXON as Connectivity Layer, ZPI for Analytics</div>
+      <p class="zpi-desc">IXON handles all machine connectivity, remote access governance, and raw PLC tag data collection. Structured data flows via MQTT or REST API to ZPI for ProMach's proprietary OEE calculations. ZPI remains the analytics brain. IXON is the secure, scalable data pipe and access layer — and adds remote access governance for the entire portfolio.</p>
+      <ul class="zpi-steps">
+        <li>IXrouter3 deployed on machines across brands — IXON collects tag data</li>
+        <li>MQTT broker publishes structured data to ZPI's data store in real time</li>
+        <li>ZPI runs its proprietary calculations on clean, normalized input data</li>
+        <li>Results surface in both ZPI and the ProMach/IXON customer portal</li>
+        <li>Remote access governed entirely through IXON — no change to ZPI's analytics model</li>
+        <li>Non-ZPI brands immediately gain connectivity and remote access without waiting for ZPI migration</li>
+      </ul>
+    </div>
+
+    <div class="zpi-card">
+      <div class="zpi-itag zi-via">Viable Path</div>
+      <div class="zpi-title">Path B — Full IXON Platform, ZPI Logic Migrated to SDK</div>
+      <p class="zpi-desc">IXON Cloud becomes the full stack — connectivity, data storage, and customer portal. ZPI's proprietary algorithms are ported into custom IXON App Engine modules. Eliminates on-prem dependencies and enables global SaaS scale. Higher implementation effort, but positions ProMach on a single modern architecture long-term.</p>
+      <ul class="zpi-steps">
+        <li>IXON App Engine used to rebuild ZPI's core calculation modules</li>
+        <li>ProMach engineering migrates ZPI logic into IXON SDK (Python/JS)</li>
+        <li>Full customer portal delivered on MSConnect — white-labeled ProMach brand</li>
+        <li>ZPI on-prem decommissioned on a scheduled timeline after validation</li>
+      </ul>
+    </div>
+
+    <div class="zpi-card">
+      <div class="zpi-itag zi-disc">Discuss With Chris</div>
+      <div class="zpi-title">Path C — IXON for New Brands Now, ZPI Stays at Zarpac</div>
+      <p class="zpi-desc">Run both systems in parallel. IXON becomes the standard for the 50+ brands without ZPI today — delivering immediate remote access governance and connectivity value. ZPI continues serving Zarpac integrated lines with no migration pressure. Both systems converge on a shared data layer over time at a pace ProMach controls.</p>
+      <ul class="zpi-steps">
+        <li>IXON standardized across all non-Zarpac brands immediately — fast ROI</li>
+        <li>ZPI continues at Zarpac with zero disruption or migration timeline</li>
+        <li>Convergence decision made in Phase 2 based on real adoption data</li>
+        <li>Lowest organizational change management burden to start</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ ROADMAP ════════════════════════════════════════ -->
+<section class="sec sec-offwh">
+  <div class="sec-eyebrow">Deployment Roadmap</div>
+  <div class="sec-title">Three Phases — Each Independently Justifiable</div>
+  <div class="sec-desc">The most important thing to understand about this roadmap: Phase 1 doesn't require Phase 3 to be justified. Remote access governance alone — across all ProMach brands — delivers measurable ROI from day one. Everything beyond that is compounding value.</div>
+
+  <div class="roadmap">
+
+    <div class="phase ph1">
+      <div class="ph-label">Phase 1 — Deploy Now</div>
+      <div class="ph-title">Remote Access Standard Across All Brands</div>
+      <div class="ph-time">⏱ Weeks to start · Months to standardize</div>
+      <ul class="ph-items">
+        <li>IXrouter3 becomes the standard gateway spec on new machines at select brands — no disruption to existing business</li>
+        <li>One ProMach login for service engineers to access any machine, any brand, anywhere</li>
+        <li>Vendor access governance: request, approve, time-limit, and audit every external connection</li>
+        <li>Eliminates ad-hoc VPN tools, laptop-based access, and untracked remote sessions</li>
+        <li>Full fleet visibility across all brands in one console — for the first time</li>
+      </ul>
+      <div class="ph-outcome">
+        <strong>Minimum Viable Win</strong>
+        Faster service response. Fewer unnecessary truck rolls. Consistent access governance across every brand. This is the foundation everything else builds on — and it's the ask from the March 10th call.
+      </div>
+    </div>
+
+    <div class="phase ph2">
+      <div class="ph-label">Phase 2 — Operationalize</div>
+      <div class="ph-title">OEE Data + ProMach Customer Portal Live</div>
+      <div class="ph-time">⏱ 3–9 months after Phase 1</div>
+      <ul class="ph-items">
+        <li>Machine Insights activated — PLC tag data flowing to IXON Cloud and/or ZPI</li>
+        <li>ProMach-branded customer portal (MSConnect) delivered to select CPG accounts</li>
+        <li>ZPI integration architecture implemented per Chris's recommendation (Path A, B, or C)</li>
+        <li>Proprietary OEE calculations deployed by ProMach engineering team via IXON App Engine SDK</li>
+        <li>Proactive alarm notifications — service team contacts customer before downtime occurs</li>
+        <li>Included with machine sale for first 12 months — subscription conversion at renewal</li>
+      </ul>
+      <div class="ph-outcome">
+        <strong>Inflection Point</strong>
+        ProMach starts generating recurring digital service revenue. CPG customers experience the OEE promise ProMach has been selling — and start asking for it on every new machine.
+      </div>
+    </div>
+
+    <div class="phase ph3">
+      <div class="ph-label">Phase 3 — Expand &amp; Scale</div>
+      <div class="ph-title">Predictive Maintenance + Recurring Revenue</div>
+      <div class="ph-time">⏱ 9–18 months · Full portfolio rollout</div>
+      <ul class="ph-items">
+        <li>AI document assistant deployed — customers self-diagnose from machine manuals and schematics</li>
+        <li>Predictive maintenance models trained on fleet-wide data across all ProMach machine types</li>
+        <li>Automated service dispatch and parts ordering triggered by machine condition data</li>
+        <li>Track &amp; trace capability built on the IXON data layer</li>
+        <li>Cross-brand benchmarking — fleet performance insights across the full ProMach portfolio</li>
+        <li>Subscription digital service tier offered as a standard line item on every machine sale</li>
+      </ul>
+      <div class="ph-outcome">
+        <strong>Competitive Moat</strong>
+        ProMach becomes the digital service partner for CPG operations — not just a machine OEM. The combination of machine expertise + fleet data + connected service is genuinely hard for any competitor to replicate.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SERVICE WORKFLOW ════════════════════════════════ -->
+<section class="sec sec-navy">
+  <div class="sec-eyebrow">Day-to-Day Impact</div>
+  <div class="sec-title">What the Service Model Looks Like in Practice</div>
+  <div class="sec-desc">The shift from reactive to proactive service isn't a slogan — it's a five-step workflow that replaces the customer calling ProMach with ProMach calling the customer first.</div>
+
+  <div class="wf">
+    <div class="ws">
+      <div class="ws-n n-teal">1</div>
+      <div class="ws-lbl" style="color:#fff">Machine Condition Detected</div>
+      <div class="ws-desc">PLC tag data in IXON Cloud surfaces an abnormal pattern. ProMach service team is alerted — before the customer notices anything.</div>
+    </div>
+    <div class="ws">
+      <div class="ws-n n-teal">2</div>
+      <div class="ws-lbl" style="color:#fff">Remote Diagnosis</div>
+      <div class="ws-desc">Service engineer queries machine history and AI document assistant. Root cause identified remotely in minutes, not hours on hold.</div>
+    </div>
+    <div class="ws">
+      <div class="ws-n n-navy" style="background:#2AAE8A">3</div>
+      <div class="ws-lbl" style="color:#fff">Secure Remote Access</div>
+      <div class="ws-desc">Engineer requests PLC/HMI access through IXON portal. Approved, time-limited session opens to that specific machine only.</div>
+    </div>
+    <div class="ws">
+      <div class="ws-n" style="background:var(--ix-yellow); color:var(--navy)">4</div>
+      <div class="ws-lbl" style="color:#fff">Resolve or Dispatch Right</div>
+      <div class="ws-desc">Issue resolved remotely — or the correct part is ordered and the right tech dispatched with everything they need. No wasted truck rolls.</div>
+    </div>
+    <div class="ws">
+      <div class="ws-n" style="background:#22c55e">5</div>
+      <div class="ws-lbl" style="color:#fff">Customer Portal Updated</div>
+      <div class="ws-desc">CPG customer sees the resolution in their ProMach portal. Trust built. Relationship deepened. OEE maintained.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PLATFORM CREDIBILITY ═══════════════════════════ -->
+<section class="sec sec-offwh">
+  <div class="sec-eyebrow">Why IXON as the Foundation</div>
+  <div class="sec-title">The Partner Stability ProMach Needs</div>
+  <div class="sec-desc">ProMach is putting its brand on this platform. That requires a partner with the scale, security credentials, and growth trajectory to support a 20,000-machines-per-year OEM portfolio for years to come.</div>
+
+  <div class="stats">
+    <div class="stat stat-navy">
+      <div class="stat-val">2,500+</div>
+      <div class="stat-lbl">OEM customers globally. ProMach joins proven peers who've already solved this problem.</div>
+    </div>
+    <div class="stat stat-teal">
+      <div class="stat-val">150K+</div>
+      <div class="stat-lbl">IXrouter gateways deployed in the field worldwide — tested at real industrial scale.</div>
+    </div>
+    <div class="stat stat-blue">
+      <div class="stat-val">99.87%</div>
+      <div class="stat-lbl">Platform uptime SLA. ProMach can put their brand on it with confidence.</div>
+    </div>
+    <div class="stat stat-navy">
+      <div class="stat-val">30–35%</div>
+      <div class="stat-lbl">Annual organic growth. IXON's roadmap is funded and accelerating — not standing still.</div>
+    </div>
+    <div class="stat stat-teal">
+      <div class="stat-val">2014</div>
+      <div class="stat-lbl">Founded in the Netherlands. 10+ years of OT connectivity focus. 125 employees, zero distractions.</div>
+    </div>
+  </div>
+
+  <div class="callouts">
+    <div class="callout c-blue">
+      <div class="callout-icon">🏷</div>
+      <div class="callout-text">
+        <strong>MSConnect White-Label Platform</strong>
+        ProMach delivers a fully branded digital portal — their logo, their URL, their customer relationship. IXON is invisible infrastructure. Customers experience ProMach, powered by IXON.
+      </div>
+    </div>
+    <div class="callout">
+      <div class="callout-icon">💰</div>
+      <div class="callout-text">
+        <strong>ProMach Controls the Pricing Layer</strong>
+        IXON provides infrastructure at predictable per-gateway + SaaS rates. ProMach sets customer-facing pricing independently and captures the margin on everything they build on top. The IT buyer at Pepsi sees ProMach pricing — not IXON's.
+      </div>
+    </div>
+    <div class="callout c-yellow">
+      <div class="callout-icon">🎓</div>
+      <div class="callout-text">
+        <strong>Training + Implementation Included</strong>
+        IXON Customer Success Engineers handle implementation and onboarding. SDK and App Engine training available onsite at ProMach facilities. Certified solution partners available for additional build capacity if needed.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PILOT PATH ═════════════════════════════════════ -->
+<section class="sec sec-white">
+  <div class="sec-eyebrow">Recommended Pilot</div>
+  <div class="sec-title">Phase 1 Validation — One Brand, 3–5 Machines, 30 Days</div>
+  <div class="sec-desc">The purpose of the pilot is not to test whether the technology works — it does, at 150,000 deployed gateways. The purpose is to validate the ProMach deployment model, give Chris's team a hands-on architecture assessment, and establish the ProMach-branded tenant before Phase 2 scoping begins.</div>
+
+  <div class="callouts" style="margin-bottom:24px">
+    <div class="callout c-blue">
+      <div class="callout-icon">⚡</div>
+      <div class="callout-text">
+        <strong>IXON side is same-day.</strong>
+        MSConnect tenant provisioned, users configured, and remote access live in under an hour. The only schedule constraint is identifying pilot machines and coordinating brand IT for network confirmation.
+      </div>
+    </div>
+    <div class="callout">
+      <div class="callout-icon">🎯</div>
+      <div class="callout-text">
+        <strong>Ideal pilot profile.</strong>
+        One brand with active CPG customer relationships. Food &amp; bev or pharma preferred — validates the security posture for ProMach's most stringent customer segment and builds the strongest case for expansion.
+      </div>
+    </div>
+  </div>
+
+  <div class="pilot-steps">
+
+    <div class="ps ps-now">
+      <div class="ps-num">1</div>
+      <div class="ps-content">
+        <div class="ps-title">Week 1 — ProMach MSConnect Tenant Provisioned by IXON</div>
+        <div class="ps-desc">IXON provisions a dedicated ProMach-branded MSConnect environment — remote access activated, user roles configured for the ProMach service team, brand customization applied. Chris and the ZPI engineering team receive API documentation and SDK sandbox access for parallel technical evaluation.</div>
+        <div class="ps-checks">
+          <span class="psc">ProMach MSConnect tenant live</span>
+          <span class="psc">Brand + portal customization applied</span>
+          <span class="psc">Service team user roles configured</span>
+          <span class="psc">API/SDK documentation to Chris's team</span>
+        </div>
+      </div>
+      <div class="ps-dur">Week 1</div>
+    </div>
+
+    <div class="ps">
+      <div class="ps-num">2</div>
+      <div class="ps-content">
+        <div class="ps-title">Weeks 1–2 — Deploy 3–5 IXrouter3 Units on Pilot Brand Machines</div>
+        <div class="ps-desc">Select 3–5 machines from one brand. IXrouter3 deployed on each — machines appear live in the ProMach portal within minutes of power-on. PLC tag collection configured, machine IPs mapped, and remote access tested end-to-end by the ProMach service team.</div>
+        <div class="ps-checks">
+          <span class="psc">3–5 IXrouters deployed and online</span>
+          <span class="psc">PLC tag collection configured</span>
+          <span class="psc">Remote access tested by service team</span>
+          <span class="psc pend">Port 443 TCP outbound confirmed with brand IT</span>
+        </div>
+      </div>
+      <div class="ps-dur">Weeks 1–2</div>
+    </div>
+
+    <div class="ps">
+      <div class="ps-num">3</div>
+      <div class="ps-content">
+        <div class="ps-title">Weeks 2–3 — ZPI Technical Architecture Review with Chris + IXON CSE</div>
+        <div class="ps-desc">Chris and the IXON Customer Success Engineer conduct a dedicated session mapping the ZPI integration path. MQTT data flow tested in sandbox. API architecture reviewed against ZPI's data model. Path A, B, or C documented with a clear recommendation before Phase 2 scoping begins.</div>
+        <div class="ps-checks">
+          <span class="psc">Chris + IXON CSE architecture session complete</span>
+          <span class="psc">MQTT/API flow mapped and tested in sandbox</span>
+          <span class="psc pend">ZPI integration path documented and recommended</span>
+          <span class="psc pend">Phase 2 data architecture scoped</span>
+        </div>
+      </div>
+      <div class="ps-dur">Weeks 2–3</div>
+    </div>
+
+    <div class="ps">
+      <div class="ps-num">4</div>
+      <div class="ps-content">
+        <div class="ps-title">Weeks 3–4 — Executive Partnership Presentation at ProMach HQ</div>
+        <div class="ps-desc">IXON's CEO (Willem) and senior team present to ProMach executive leadership — Bret, Andy, Ryan, Jim — with pilot results, architecture recommendation, and a multi-brand rollout roadmap. Internal ProMach champion named. Commercial framework and partnership terms discussed to close Phase 1 into a formal agreement.</div>
+        <div class="ps-checks">
+          <span class="psc pend">Pilot results reviewed with exec team</span>
+          <span class="psc pend">Multi-brand rollout plan scoped</span>
+          <span class="psc pend">ProMach internal champion named</span>
+          <span class="psc pend">Commercial terms and partnership framework agreed</span>
+        </div>
+      </div>
+      <div class="ps-dur">Weeks 3–4</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ NEXT STEPS ═════════════════════════════════════ -->
+<section class="sec sec-offwh">
+  <div class="sec-eyebrow">Immediate Action Plan</div>
+  <div class="sec-title">Four Moves That Turn This Conversation Into Momentum</div>
+  <div class="sec-desc">None of these require a signed contract or a budget decision. They're the technical and organizational steps that give ProMach the confidence to move from exploration to execution.</div>
+
+  <div class="nsgrid">
+    <div class="nscard">
+      <div class="ns-num">1</div>
+      <div class="ns-action">March 10 — Technical Deep Dive with Chris &amp; IXON CSE</div>
+      <div class="ns-desc">Chris (ZPI lead) and IXON's Customer Success Engineer walk through the ZPI integration architecture. Define integration path. Identify pilot brand and machine candidates. Confirm what data flows where.</div>
+      <div class="ns-owner">Ryan McCart · Brandon Penrod · Chris (ZPI)</div>
+    </div>
+    <div class="nscard">
+      <div class="ns-num">2</div>
+      <div class="ns-action">Identify the Pilot Brand + 3–5 Machines</div>
+      <div class="ns-desc">Name one brand with active CPG relationships for the Phase 1 pilot. Food &amp; bev or pharma preferred. Gives the March 10th call a concrete scope — not a concept.</div>
+      <div class="ns-owner">Jim Soenke · Ryan McCart · Chris</div>
+    </div>
+    <div class="nscard">
+      <div class="ns-num">3</div>
+      <div class="ns-action">Provision ProMach MSConnect Tenant</div>
+      <div class="ns-desc">IXON provisions the ProMach-branded MSConnect environment — same day, no charge during pilot phase. Gives Chris hands-on API and SDK access alongside the physical pilot.</div>
+      <div class="ns-owner">IXON CSE · Phil Belue</div>
+    </div>
+    <div class="nscard">
+      <div class="ns-num">4</div>
+      <div class="ns-action">Schedule Executive Onsite at ProMach HQ</div>
+      <div class="ns-desc">After technical green light from Chris — IXON CEO (Willem) + Brandon + Phil present the partnership roadmap to Bret, Andy, and Mark. Strategic alignment, roadmap commitment, commercial framework.</div>
+      <div class="ns-owner">Brandon Penrod · Bret Ranc</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ════════════════════════════════════════════ -->
+<div class="cta-bar">
+  <div class="cta-copy">
+    <div class="cta-t">The infrastructure is ready. ProMach's opportunity is now.</div>
+    <div class="cta-s">A ProMach-branded MSConnect environment can be live today. Three pilot machines can be online within a week. The decision to build in-house takes 3 years. This takes 30 days to validate.</div>
+  </div>
+  <div class="cta-btns">
+    <a class="btn-p" href="https://ixon.cloud" target="_blank">Start the Pilot Conversation</a>
+    <a class="btn-s" href="https://marketplace.ixon.cloud" target="_blank">Explore the App Ecosystem</a>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ════════════════════════════════════════ -->
+<footer class="ftr">
+  <div class="ftr-l">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 235.277 83.92" style="height:26px;width:auto;fill:rgba(255,255,255,0.4);">
+      <g transform="translate(-7440 18520)">
+        <path d="M76.5-12.667l-.173.227L57.837-35.4a10.582,10.582,0,0,1,0-13.16l5.934-7.359.173.186C67.8-51.6,71.451-47.347,74.73-43.08l.747.987c.253.319.493.652.733,1,6.147,8.786,6.267,20.212.294,28.425Zm-2.4,2.8a.369.369,0,0,1-.254.107.362.362,0,0,1-.2-.068l-.013-.013-1.16-.934-3.92-3.159L50.477-28.494A13.582,13.582,0,0,0,42-31.454a13.583,13.583,0,0,0-8.48,2.96L15.358-13.866l-4.707,3.8-.306.24a.338.338,0,0,1-.213.068.322.322,0,0,1-.24-.094l-.014-.013a.311.311,0,0,1-.026-.427v-.026l.254-.294,3.066-3.827.734-.893,14.613-18.16a13.591,13.591,0,0,0,0-16.96L12.877-69.88,10.037-73.4l-.173-.227-.013-.013a.364.364,0,0,1,.04-.453.329.329,0,0,1,.453-.015l.227.175,3.519,2.84L33.518-55.467A13.518,13.518,0,0,0,42-52.494a13.517,13.517,0,0,0,8.48-2.973L66.944-68.72l6.44-5.2.253-.188a.347.347,0,0,1,.467.015h.013a.362.362,0,0,1,.027.466c0,.013,0,.013-.013.013l-.187.254-5.2,6.44L55.491-50.453a13.571,13.571,0,0,0,0,16.947L70.037-15.413l3.16,3.919.934,1.16a.348.348,0,0,1-.027.468ZM71.317-7.48A23.131,23.131,0,0,1,57.544-3.054a25.442,25.442,0,0,1-14.68-4.72c-.333-.227-.667-.466-.987-.72L40.9-9.24c-4.307-3.32-8.573-6.946-12.667-10.786l-.187-.173,7.36-5.934A10.506,10.506,0,0,1,42-28.441a10.511,10.511,0,0,1,6.587,2.307L71.544-7.64ZM39.064-6.454a25.578,25.578,0,0,1-12.653,3.4A23.09,23.09,0,0,1,12.678-7.467l-.227-.173L25.664-18.293l.133.133c4.266,4.027,8.746,7.841,13.293,11.347l.254.186Zm-31.4-5.972-.16-.227C2.011-20.16,1.611-30.52,6.478-39.026l.173-.293.214.28c3.507,4.546,7.307,9.013,11.32,13.266l.133.134ZM7.5-71.293l.16-.24L26.158-48.56a10.545,10.545,0,0,1,0,13.173l-5.933,7.36-.173-.187c-3.813-4.079-7.454-8.333-10.8-12.667l-.733-.972c-.254-.32-.493-.641-.733-1C1.611-51.639,1.5-63.067,7.5-71.293Zm5.187-5.187a23.112,23.112,0,0,1,13.747-4.427,25.506,25.506,0,0,1,14.693,4.733c.333.227.653.467.987.72l.973.747C47.344-71.426,51.6-67.8,55.757-63.92l.187.173-7.36,5.933A10.581,10.581,0,0,1,42-55.52a10.576,10.576,0,0,1-6.586-2.293L12.451-76.319Zm32.253-1a25.267,25.267,0,0,1,12.614-3.414A23.287,23.287,0,0,1,71.317-76.48l.227.16L58.317-65.667l-.133-.133c-4.307-4.053-8.773-7.867-13.267-11.32l-.267-.2Zm31.4,5.96.16.227a24.242,24.242,0,0,1,1.014,26.36l-.187.28-.187-.267c-3.467-4.493-7.28-8.946-11.32-13.241l-.133-.133Zm2.973,29.667-.066-.107.066-.12a28.6,28.6,0,0,0,3.467-7.494,27.692,27.692,0,0,0,1.16-8.959,26.288,26.288,0,0,0-6.48-16.4c-.147-.147-.28-.307-.413-.467-.227-.253-.467-.507-.72-.773l-.173-.146c-.387-.4-.8-.773-1.2-1.121A26.21,26.21,0,0,0,57.584-83.92,28.408,28.408,0,0,0,42.1-79.293l-.12.066-.12-.066A28.519,28.519,0,0,0,26.4-83.92,26.2,26.2,0,0,0,9.064-77.453c-.414.346-.826.733-1.227,1.134l-.187.186c-.4.387-.773.8-1.12,1.2-7.973,9.026-8.706,22.226-1.866,32.84l.08.12-.08.12C-2.163-31.24-1.429-18.054,6.518-9.027c.359.413.733.812,1.106,1.186l.227.227c.387.386.786.76,1.186,1.107A26.262,26.262,0,0,0,26.424,0,28.589,28.589,0,0,0,41.877-4.64L42-4.72l.12.081A28.534,28.534,0,0,0,57.558-.014,26.224,26.224,0,0,0,74.944-6.507c.414-.359.813-.733,1.214-1.12l.186-.2c.4-.372.773-.8,1.133-1.186,7.934-9.04,8.68-22.226,1.84-32.839" transform="translate(7440 -18436.08)"/>
+        <path d="M156.584-60.92H145.09l-8.373,11.44L128.6-60.92H116.984l14.04,19-14.04,18.947h11.68l8.053-11,8.013,11h11.64L142.557-41.68,156.584-60.92" transform="translate(7440 -18436.08)"/>
+        <path d="M183.517-33.494a8.783,8.783,0,0,1-7.067,3.04,8.639,8.639,0,0,1-7.067-3.04c-1.707-2-2.547-4.826-2.547-8.426s.853-6.4,2.56-8.414a8.668,8.668,0,0,1,7.053-3.013,8.752,8.752,0,0,1,7.08,3q2.54,3,2.547,8.427c0,3.6-.853,6.426-2.56,8.426Zm7.613-22.72q-5.48-5.379-14.613-5.372-9.22,0-14.707,5.372T156.33-41.92q0,8.9,5.48,14.239t14.707,5.346q9.22,0,14.653-5.333T196.6-41.92q0-8.941-5.467-14.294" transform="translate(7440 -18436.08)"/>
+        <path d="M231.61-57.693C229.183-59.84,225.1-60.92,219.4-60.92h-18.84v37.947h10.027V-52.586h8.053c2.653,0,4.413.426,5.293,1.267s1.32,2.693,1.32,5.519v22.827h10.027V-47.026q0-7.461-3.667-10.667" transform="translate(7440 -18436.08)"/>
+        <path d="M104.172-60.922V-29.27c.042,2.156,1.547,6.031,7.561,6.29h2.955V-60.922H104.172" transform="translate(7440 -18436.08)"/>
+      </g>
+    </svg>
+    <div class="ftr-certs">
+      <span class="fcert">ISO 27001</span>
+      <span class="fcert">IEC 62443-4-2</span>
+      <span class="fcert">trust.ixon.cloud</span>
+      <span class="fcert">99.87% SLA</span>
+      <span class="fcert">status.ixon.cloud</span>
+    </div>
+  </div>
+  <div class="ftr-r">
+    ProMach × IXON Cloud — Digital Service Platform Strategy<br>
+    Confidential · Prepared for ProMach Group Leadership
+  </div>
+</footer>
+
+</body>
+</html>
