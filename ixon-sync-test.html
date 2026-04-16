@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sync API Test</title>
+<style>
+body{font-family:sans-serif;max-width:500px;margin:40px auto;padding:20px}
+.test{padding:16px;margin:12px 0;border-radius:8px;border:2px solid #ddd}
+.pass{border-color:#22c55e;background:#f0fdf4}
+.fail{border-color:#ef4444;background:#fef2f2}
+.running{border-color:#facd00;background:#fefce8}
+button{background:#1059D2;color:white;border:none;padding:14px 28px;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer;width:100%}
+h1{color:#021752}
+#log{white-space:pre-wrap;font-family:monospace;font-size:12px;background:#f3f4fa;padding:12px;border-radius:6px;margin-top:16px;max-height:300px;overflow-y:auto}
+</style>
+</head>
+<body>
+<h1>IXON Sync API Test</h1>
+<p>Click the button to test if the sync backend works from your browser.</p>
+<button onclick="runTest()">Run Test</button>
+
+<div id="results"></div>
+<div id="log"></div>
+
+<script>
+const log = (msg) => { document.getElementById("log").textContent += msg + "\n"; };
+const addResult = (name, pass, detail) => {
+  document.getElementById("results").innerHTML +=
+    `<div class="test ${pass ? 'pass' : 'fail'}"><strong>${pass ? '✅' : '❌'} ${name}</strong><br>${detail}</div>`;
+};
+
+async function runTest() {
+  document.getElementById("results").innerHTML = '<div class="test running"><strong>⏳ Testing...</strong></div>';
+  document.getElementById("log").textContent = "";
+
+  let binId = null;
+
+  // Test 1: Create a bin
+  try {
+    log("POST https://api.npoint.io/ ...");
+    const res = await fetch("https://api.npoint.io/", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({test: true, created: new Date().toISOString()})
+    });
+    log("Status: " + res.status);
+    const data = await res.json();
+    log("Response: " + JSON.stringify(data));
+    binId = data.id || data._id;
+    if (binId) {
+      addResult("Create Sync", true, "Bin created with ID: " + binId);
+    } else {
+      addResult("Create Sync", false, "No ID returned. Response: " + JSON.stringify(data));
+      return;
+    }
+  } catch(e) {
+    log("ERROR: " + e.message);
+    addResult("Create Sync", false, "Failed: " + e.message);
+
+    // Try jsonblob as fallback
+    log("\nTrying fallback: jsonblob.com...");
+    try {
+      const res2 = await fetch("https://jsonblob.com/api/jsonBlob", {
+        method: "POST",
+        headers: {"Content-Type": "application/json", "Accept": "application/json"},
+        body: JSON.stringify({test: true})
+      });
+      log("jsonblob status: " + res2.status);
+      const loc = res2.headers.get("Location");
+      log("Location header: " + loc);
+      if (loc) {
+        binId = loc.split("/").pop();
+        addResult("Fallback (jsonblob)", true, "Created with ID: " + binId);
+      } else {
+        addResult("Fallback (jsonblob)", false, "No location header");
+      }
+    } catch(e2) {
+      log("Fallback ERROR: " + e2.message);
+      addResult("Fallback (jsonblob)", false, "Also failed: " + e2.message);
+    }
+    if (!binId) return;
+  }
+
+  // Test 2: Read the bin
+  try {
+    const url = binId.length > 20
+      ? "https://jsonblob.com/api/jsonBlob/" + binId
+      : "https://api.npoint.io/" + binId;
+    log("\nGET " + url + " ...");
+    const res = await fetch(url);
+    log("Status: " + res.status);
+    const data = await res.json();
+    log("Response: " + JSON.stringify(data));
+    addResult("Read Sync", true, "Successfully read back data");
+  } catch(e) {
+    log("ERROR: " + e.message);
+    addResult("Read Sync", false, "Failed: " + e.message);
+  }
+
+  // Test 3: Update the bin
+  try {
+    const isNpoint = binId.length < 20;
+    const url = isNpoint
+      ? "https://api.npoint.io/" + binId
+      : "https://jsonblob.com/api/jsonBlob/" + binId;
+    const method = isNpoint ? "POST" : "PUT";
+    log("\n" + method + " " + url + " ...");
+    const res = await fetch(url, {
+      method: method,
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({test: true, updated: new Date().toISOString(), data: {"1": {status: "visited"}}})
+    });
+    log("Status: " + res.status);
+    addResult("Update Sync", true, "Successfully updated data (HTTP " + res.status + ")");
+  } catch(e) {
+    log("ERROR: " + e.message);
+    addResult("Update Sync", false, "Failed: " + e.message);
+  }
+
+  // Remove the "testing" indicator
+  document.querySelector(".running")?.remove();
+
+  log("\n--- DONE ---");
+  if (binId) {
+    log("Working backend: " + (binId.length < 20 ? "npoint.io" : "jsonblob.com"));
+    log("Bin ID: " + binId);
+  }
+}
+</script>
+</body>
+</html>
