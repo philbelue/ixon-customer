@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spartan Light Metal Products — IXON Remote Access Plus</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ixon-blue: #1059D2;
+    --ixon-dark: #021752;
+    --ixon-offwhite: #F3F4FA;
+    --ixon-yellow: #FACD00;
+    --ixon-grey: #626262;
+    --ixon-light-blue: #e8f0fd;
+    --ixon-green: #22c55e;
+    --ixon-red: #ef4444;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--ixon-offwhite);
+    color: var(--ixon-dark);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--ixon-blue);
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid var(--ixon-yellow);
+  }
+  .header-left { display: flex; align-items: center; gap: 20px; }
+  .ixon-logo {
+    display: flex; align-items: center;
+  }
+  .header-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.2); }
+  .customer-badge {
+    font-family: var(--font-heading); font-weight: 500;
+    font-size: 13px; color: rgba(255,255,255,0.75); letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .doc-tag {
+    background: var(--ixon-yellow); color: var(--ixon-dark);
+    font-family: var(--font-heading); font-weight: 600; font-size: 11px;
+    padding: 4px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.8px;
+  }
+
+
+  /* ── SPARTAN NAME BADGE ── */
+  .spartan-name-badge {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 1px;
+  }
+  .snb-company {
+    font-family: var(--font-heading); font-weight: 700; font-size: 15px;
+    color: #fff; letter-spacing: 1.5px; line-height: 1;
+  }
+  .snb-sub {
+    font-family: var(--font-heading); font-weight: 300; font-size: 9px;
+    color: rgba(255,255,255,0.7); letter-spacing: 1.5px; text-transform: uppercase;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--ixon-blue);
+    padding: 56px 48px 48px;
+    color: #fff;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-heading); font-weight: 500; font-size: 12px;
+    color: var(--ixon-yellow); letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: var(--font-heading); font-weight: 700; font-size: 34px;
+    line-height: 1.2; margin-bottom: 10px; max-width: 700px;
+  }
+  .hero h1 span { color: var(--ixon-yellow); }
+  .hero-subtitle {
+    font-family: var(--font-heading); font-weight: 300; font-size: 16px;
+    color: rgba(255,255,255,0.75); margin-bottom: 36px; max-width: 580px;
+  }
+  .hero-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+  .hero-pill {
+    border: 1px solid rgba(255,255,255,0.25); border-radius: 20px;
+    padding: 6px 16px; font-size: 12px; font-weight: 500;
+    color: rgba(255,255,255,0.85); font-family: var(--font-heading);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .hero-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ixon-yellow); }
+
+  /* ── SECTION WRAPPER ── */
+  .section { padding: 48px 48px; }
+  .section-alt { background: #fff; }
+  .section-dark { background: var(--ixon-dark); color: #fff; }
+  .section-nextsteps { background: var(--ixon-offwhite); }
+
+  .section-label {
+    font-family: var(--font-heading); font-weight: 600; font-size: 11px;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--ixon-blue);
+    margin-bottom: 8px;
+  }
+  .section-dark .section-label { color: var(--ixon-yellow); }
+  .section-nextsteps .section-label { color: var(--ixon-blue); }
+  .section-title {
+    font-family: var(--font-heading); font-weight: 700; font-size: 24px;
+    margin-bottom: 8px; color: var(--ixon-dark);
+  }
+  .section-dark .section-title { color: #fff; }
+  .section-nextsteps .section-title { color: var(--ixon-dark); }
+  .section-desc {
+    font-size: 14px; color: var(--ixon-grey); max-width: 680px; margin-bottom: 36px;
+  }
+  .section-dark .section-desc { color: rgba(255,255,255,0.65); }
+  .section-nextsteps .section-desc { color: var(--ixon-grey); }
+
+  /* ── ARCHITECTURE DIAGRAM ── */
+  .arch-wrapper {
+    display: flex; flex-direction: column; gap: 0; align-items: center;
+    max-width: 900px; margin: 0 auto;
+  }
+  .arch-layer {
+    width: 100%; border-radius: 12px; padding: 20px 24px; position: relative;
+  }
+  .arch-layer-label {
+    font-family: var(--font-heading); font-weight: 600; font-size: 10px;
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .arch-layer-label .badge {
+    padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: 700;
+  }
+  .layer-factory { background: #fff; border: 2px solid #e2e8f0; }
+  .layer-factory .arch-layer-label { color: #475569; }
+  .layer-factory .badge { background: #e2e8f0; color: #475569; }
+
+  .layer-edge { background: var(--ixon-light-blue); border: 2px solid var(--ixon-blue); }
+  .layer-edge .arch-layer-label { color: var(--ixon-blue); }
+  .layer-edge .badge { background: var(--ixon-blue); color: #fff; }
+
+  .layer-cloud { background: var(--ixon-blue); border: 2px solid #0a47b8; }
+  .layer-cloud .arch-layer-label { color: #fff; }
+  .layer-cloud .badge { background: var(--ixon-yellow); color: var(--ixon-dark); }
+
+  .layer-user { background: #f0fdf4; border: 2px solid var(--ixon-green); }
+  .layer-user .arch-layer-label { color: #16a34a; }
+  .layer-user .badge { background: var(--ixon-green); color: #fff; }
+
+  .arch-arrow {
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 2px; padding: 6px 0; z-index: 1;
+  }
+  .arch-arrow .arrow-line {
+    width: 2px; height: 20px; background: linear-gradient(to bottom, var(--ixon-blue), var(--ixon-blue));
+    opacity: 0.5;
+  }
+  .arch-arrow .arrow-label {
+    font-size: 10px; color: var(--ixon-grey); font-family: var(--font-mono);
+    background: var(--ixon-offwhite); padding: 2px 8px; border-radius: 4px;
+    border: 1px solid #e2e8f0;
+  }
+  .arch-arrow svg { color: var(--ixon-blue); opacity: 0.6; }
+
+  /* machines row */
+  .machines-row {
+    display: flex; gap: 12px; flex-wrap: wrap;
+  }
+  .machine-group { display: flex; flex-direction: column; gap: 6px; }
+  .machine-group-label {
+    font-size: 10px; font-weight: 600; color: #64748b; letter-spacing: 0.5px;
+    text-transform: uppercase; padding-bottom: 4px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .machine-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .machine-chip {
+    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px;
+    padding: 6px 10px; font-size: 11px; font-family: var(--font-heading); font-weight: 500;
+    color: #334155; display: flex; align-items: center; gap: 5px;
+  }
+  .machine-chip .chip-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--ixon-green); }
+  .chip-router {
+    background: var(--ixon-blue); color: #fff; border-color: var(--ixon-blue);
+    font-weight: 600;
+  }
+
+  /* edge row */
+  .edge-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .edge-device {
+    background: #fff; border: 2px solid var(--ixon-blue); border-radius: 8px;
+    padding: 10px 14px; display: flex; align-items: center; gap: 10px;
+  }
+  .edge-device-icon {
+    width: 32px; height: 32px; background: var(--ixon-blue); border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; color: #fff; font-weight: 700;
+  }
+  .edge-device-info { display: flex; flex-direction: column; }
+  .edge-device-name {
+    font-family: var(--font-heading); font-weight: 600; font-size: 12px;
+    color: var(--ixon-dark);
+  }
+  .edge-device-detail { font-size: 10px; color: var(--ixon-grey); }
+  .edge-features { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .edge-feature-tag {
+    background: var(--ixon-light-blue); color: var(--ixon-blue);
+    border-radius: 4px; padding: 3px 8px; font-size: 10px; font-weight: 500;
+    font-family: var(--font-mono);
+  }
+
+  /* cloud row */
+  .cloud-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .cloud-service {
+    flex: 1; min-width: 140px; background: #fff;
+    border: 1px solid rgba(255,255,255,0.4); border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .cloud-service-name {
+    font-family: var(--font-heading); font-weight: 600; font-size: 12px;
+    color: var(--ixon-dark); margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
+  }
+  .cloud-service-name .cs-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ixon-blue); }
+  .cloud-service-items { list-style: none; }
+  .cloud-service-items li {
+    font-size: 11px; color: var(--ixon-grey); padding: 2px 0;
+    padding-left: 10px; position: relative;
+  }
+  .cloud-service-items li::before {
+    content: '›'; position: absolute; left: 0; color: var(--ixon-blue);
+  }
+
+  /* user row */
+  .user-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .user-card {
+    flex: 1; min-width: 150px; background: #fff;
+    border: 2px solid #d1fae5; border-radius: 8px; padding: 12px 14px;
+  }
+  .user-card-role {
+    font-family: var(--font-heading); font-weight: 600; font-size: 12px;
+    color: #16a34a; margin-bottom: 4px;
+  }
+  .user-card-desc { font-size: 11px; color: var(--ixon-grey); }
+  .user-access-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 8px; }
+  .user-access-tag {
+    background: #d1fae5; color: #16a34a; border-radius: 3px;
+    padding: 2px 6px; font-size: 10px; font-weight: 500;
+  }
+  .user-access-tag.restricted { background: #fef3c7; color: #d97706; }
+  .user-access-tag.limited { background: #dbeafe; color: var(--ixon-blue); }
+
+
+  /* ── COMPLIANCE COMPACT ── */
+  .cloud-compliance { min-width: 120px; }
+  .compliance-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 2px; }
+  .ctag {
+    background: var(--ixon-offwhite); color: var(--ixon-dark);
+    border: 1px solid #e2e8f0; border-radius: 4px;
+    padding: 2px 7px; font-size: 10px; font-weight: 600;
+    font-family: var(--font-heading); white-space: nowrap;
+  }
+
+  /* ── FEATURE GRID ── */
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .feature-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
+    padding: 20px; position: relative; overflow: hidden;
+  }
+  .feature-card.primary { border-color: var(--ixon-blue); border-width: 2px; }
+  .feature-card.primary::before {
+    content: 'KEY FEATURE'; position: absolute; top: 12px; right: 12px;
+    background: var(--ixon-blue); color: #fff;
+    font-size: 9px; font-weight: 700; letter-spacing: 1px;
+    padding: 2px 6px; border-radius: 3px; font-family: var(--font-heading);
+  }
+  .feature-icon {
+    width: 40px; height: 40px; border-radius: 8px; display: flex;
+    align-items: center; justify-content: center; margin-bottom: 12px;
+    font-size: 18px;
+  }
+  .fi-blue { background: var(--ixon-light-blue); }
+  .fi-yellow { background: #fef9c3; }
+  .fi-green { background: #d1fae5; }
+  .feature-title {
+    font-family: var(--font-heading); font-weight: 600; font-size: 14px;
+    color: var(--ixon-dark); margin-bottom: 8px;
+  }
+  .feature-desc { font-size: 12px; color: var(--ixon-grey); line-height: 1.6; margin-bottom: 12px; }
+  .feature-example {
+    background: var(--ixon-offwhite); border-radius: 6px; padding: 10px 12px;
+    font-family: var(--font-mono); font-size: 10px; color: #475569; line-height: 1.7;
+  }
+  .fe-label { color: var(--ixon-blue); font-weight: 600; }
+  .fe-arrow { color: var(--ixon-grey); }
+  .fe-value { color: var(--ixon-dark); }
+  .fe-tag {
+    display: inline-block; background: #fef3c7; color: #d97706;
+    border-radius: 3px; padding: 1px 5px; font-size: 9px; margin-left: 4px;
+  }
+  .fe-tag.green { background: #d1fae5; color: #16a34a; }
+
+  /* ── WORKFLOW ── */
+  .workflow-steps { display: flex; gap: 0; align-items: flex-start; }
+  .workflow-step {
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    text-align: center; position: relative;
+  }
+  .workflow-step:not(:last-child)::after {
+    content: '';
+    position: absolute; top: 20px; left: calc(50% + 20px);
+    width: calc(100% - 40px); height: 2px;
+    background: linear-gradient(to right, var(--ixon-blue), var(--ixon-light-blue));
+  }
+  .ws-num {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--ixon-blue); color: #fff;
+    font-family: var(--font-heading); font-weight: 700; font-size: 15px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 1; flex-shrink: 0; margin-bottom: 10px;
+  }
+  .ws-num.yellow { background: var(--ixon-yellow); color: var(--ixon-dark); }
+  .ws-num.green { background: var(--ixon-green); color: #fff; }
+  .ws-label {
+    font-family: var(--font-heading); font-weight: 600; font-size: 11px;
+    color: var(--ixon-dark); margin-bottom: 4px; line-height: 1.3;
+  }
+  .ws-desc { font-size: 10px; color: var(--ixon-grey); line-height: 1.4; padding: 0 6px; }
+
+
+  /* ── TIMELINE CALLOUT ── */
+  .timeline-callout {
+    display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;
+  }
+  .tc-item {
+    flex: 1; min-width: 260px; display: flex; gap: 12px; align-items: flex-start;
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 16px;
+    border-left: 4px solid var(--ixon-blue);
+  }
+  .tc-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .tc-text { font-size: 12px; color: var(--ixon-grey); line-height: 1.6; }
+  .tc-text strong { color: var(--ixon-dark); }
+
+  /* ── TRIAL PATH ── */
+  .trial-steps { display: flex; flex-direction: column; gap: 12px; max-width: 860px; }
+  .trial-step {
+    display: flex; gap: 20px; align-items: flex-start;
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+    padding: 16px 20px; position: relative;
+  }
+  .trial-step.active { border-color: var(--ixon-blue); border-width: 2px; }
+  .trial-step.active::before {
+    content: 'START HERE'; position: absolute; top: -1px; right: 16px;
+    background: var(--ixon-blue); color: #fff; font-size: 9px; font-weight: 700;
+    letter-spacing: 1px; padding: 3px 8px; border-radius: 0 0 4px 4px;
+    font-family: var(--font-heading);
+  }
+  .ts-num {
+    width: 36px; height: 36px; border-radius: 8px; background: var(--ixon-offwhite);
+    border: 2px solid #e2e8f0; display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-heading); font-weight: 700; font-size: 14px; color: var(--ixon-grey);
+    flex-shrink: 0;
+  }
+  .trial-step.active .ts-num { background: var(--ixon-blue); color: #fff; border-color: var(--ixon-blue); }
+  .ts-content { flex: 1; }
+  .ts-title {
+    font-family: var(--font-heading); font-weight: 600; font-size: 14px;
+    color: var(--ixon-dark); margin-bottom: 4px;
+  }
+  .ts-desc { font-size: 12px; color: var(--ixon-grey); margin-bottom: 8px; }
+  .ts-checklist { display: flex; gap: 8px; flex-wrap: wrap; }
+  .ts-check {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 11px; color: #475569; font-family: var(--font-heading);
+  }
+  .ts-check::before {
+    content: '✓'; color: var(--ixon-blue); font-weight: 700; font-size: 11px;
+  }
+  .ts-check.pending::before { content: '○'; color: var(--ixon-grey); }
+  .ts-duration {
+    font-size: 10px; font-weight: 600; color: var(--ixon-blue);
+    background: var(--ixon-light-blue); padding: 3px 10px; border-radius: 12px;
+    font-family: var(--font-heading); white-space: nowrap; flex-shrink: 0;
+    align-self: center;
+  }
+
+  /* ── CAPABILITY TABLE ── */
+  .cap-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .cap-table th {
+    background: var(--ixon-blue); color: #fff;
+    font-family: var(--font-heading); font-weight: 600; font-size: 11px;
+    letter-spacing: 0.5px; padding: 10px 14px; text-align: left;
+  }
+  .cap-table td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+  .cap-table tr:last-child td { border-bottom: none; }
+  .cap-table tr:nth-child(even) td { background: var(--ixon-offwhite); }
+  .cap-table td:first-child { font-weight: 600; color: var(--ixon-dark); }
+  .avail-dot {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 11px; font-weight: 600;
+  }
+  .avail-dot.yes { color: var(--ixon-green); }
+  .avail-dot.no { color: #94a3b8; }
+  .avail-dot::before { content: '●'; font-size: 8px; }
+
+
+  /* ── PLATFORM RESOURCES ── */
+  .resources-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
+  .resource-group { display: flex; flex-direction: column; gap: 8px; }
+  .rg-label {
+    font-family: var(--font-heading); font-weight: 600; font-size: 11px;
+    letter-spacing: 1px; text-transform: uppercase; color: var(--ixon-blue);
+    padding-bottom: 8px; border-bottom: 2px solid var(--ixon-light-blue);
+    margin-bottom: 4px;
+  }
+  .resource-links { display: flex; flex-direction: column; gap: 4px; }
+  .res-link {
+    display: flex; align-items: center; gap: 10px;
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 8px;
+    padding: 10px 12px; text-decoration: none; color: inherit;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .res-link:hover { border-color: var(--ixon-blue); background: var(--ixon-light-blue); }
+  .res-link.res-featured { border-color: #bfdbfe; background: #f0f6ff; }
+  .res-link.res-all { border-style: dashed; border-color: #cbd5e1; }
+  .rl-icon { font-size: 16px; flex-shrink: 0; width: 24px; text-align: center; }
+  .rl-body { flex: 1; display: flex; flex-direction: column; gap: 1px; }
+  .rl-title {
+    font-family: var(--font-heading); font-weight: 600; font-size: 12px;
+    color: var(--ixon-dark); display: flex; align-items: center; gap: 6px;
+  }
+  .rl-badge {
+    background: var(--ixon-blue); color: #fff; border-radius: 3px;
+    padding: 1px 5px; font-size: 9px; font-weight: 600; letter-spacing: 0.5px;
+  }
+  .rl-url { font-size: 10px; color: var(--ixon-grey); font-family: var(--font-mono); }
+  .rl-arrow { font-size: 12px; color: var(--ixon-blue); opacity: 0.5; flex-shrink: 0; }
+
+  /* ── NEXT STEPS ── */
+  .next-steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .next-step-card {
+    background: #fff; border: 1px solid #e2e8f0;
+    border-radius: 10px; padding: 18px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .ns-num {
+    width: 28px; height: 28px; border-radius: 6px;
+    background: var(--ixon-yellow); color: var(--ixon-dark);
+    font-family: var(--font-heading); font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 10px;
+  }
+  .ns-action {
+    font-family: var(--font-heading); font-weight: 600; font-size: 13px;
+    color: var(--ixon-dark); margin-bottom: 4px;
+  }
+  .ns-desc { font-size: 11px; color: var(--ixon-grey); margin-bottom: 8px; }
+  .ns-owner {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.5px;
+    text-transform: uppercase; color: var(--ixon-blue);
+    font-family: var(--font-heading);
+  }
+
+  /* ── CTA STRIP ── */
+  .cta-strip {
+    background: var(--ixon-yellow); padding: 28px 48px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: gap;
+  }
+  .cta-text { font-family: var(--font-heading); font-weight: 700; font-size: 18px; color: var(--ixon-dark); }
+  .cta-sub { font-size: 13px; color: rgba(2,23,82,0.7); margin-top: 2px; }
+  .cta-actions { display: flex; gap: 12px; align-items: center; }
+  .cta-btn {
+    background: var(--ixon-blue); color: #fff; border: none;
+    font-family: var(--font-heading); font-weight: 600; font-size: 13px;
+    padding: 10px 22px; border-radius: 6px; cursor: pointer; text-decoration: none;
+    display: inline-block;
+  }
+  .cta-btn.secondary {
+    background: transparent; color: var(--ixon-dark);
+    border: 2px solid var(--ixon-dark);
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--ixon-dark); padding: 20px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-left { display: flex; align-items: center; gap: 10px; }
+  .footer-logo { display: flex; align-items: center; }
+  .footer-cert { display: flex; gap: 8px; }
+  .cert-badge {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px; padding: 4px 8px; font-size: 10px;
+    font-family: var(--font-heading); font-weight: 500; color: rgba(255,255,255,0.6);
+  }
+  .footer-right { font-size: 11px; color: rgba(255,255,255,0.4); text-align: right; }
+
+  /* ── DIVIDER ARROWS ── */
+  .layer-connector {
+    display: flex; flex-direction: column; align-items: center; padding: 4px 0;
+  }
+  .connector-line { width: 2px; height: 14px; background: var(--ixon-blue); opacity: 0.4; }
+  .connector-arrow {
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 7px solid var(--ixon-blue);
+    opacity: 0.4;
+  }
+  .connector-label {
+    font-size: 9px; color: var(--ixon-grey); font-family: var(--font-mono);
+    margin: 3px 0; letter-spacing: 0.5px;
+  }
+
+  /* ── SECURITY CALLOUT ── */
+  .security-strip {
+    background: var(--ixon-light-blue); border-left: 4px solid var(--ixon-blue);
+    border-radius: 0 8px 8px 0; padding: 12px 16px; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .security-strip-icon { font-size: 20px; }
+  .security-strip-text { font-size: 12px; color: var(--ixon-dark); }
+  .security-strip-text strong { color: var(--ixon-blue); }
+
+  /* ── STAT ROW ── */
+  .stat-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
+  .stat-card {
+    flex: 1; min-width: 160px; background: var(--ixon-blue);
+    border-radius: 10px; padding: 16px 20px;
+  }
+  .stat-value {
+    font-family: var(--font-heading); font-weight: 700; font-size: 28px;
+    color: var(--ixon-yellow); line-height: 1;
+  }
+  .stat-label { font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+  @media (max-width: 700px) {
+    .section { padding: 32px 20px; }
+    .header { padding: 16px 20px; }
+    .hero { padding: 32px 20px; }
+    .workflow-steps { flex-direction: column; gap: 12px; }
+    .workflow-step::after { display: none; }
+    .cta-strip { flex-direction: column; gap: 16px; padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-left">
+    <div class="ixon-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 235.277 83.92" style="height:36px;width:auto;fill:#fff;">
+  <g transform="translate(-7440 18520)">
+    <path d="M76.5-12.667l-.173.227L57.837-35.4a10.582,10.582,0,0,1,0-13.16l5.934-7.359.173.186C67.8-51.6,71.451-47.347,74.73-43.08l.747.987c.253.319.493.652.733,1,6.147,8.786,6.267,20.212.294,28.425Zm-2.4,2.8a.369.369,0,0,1-.254.107.362.362,0,0,1-.2-.068l-.013-.013-1.16-.934-3.92-3.159L50.477-28.494A13.582,13.582,0,0,0,42-31.454a13.583,13.583,0,0,0-8.48,2.96L15.358-13.866l-4.707,3.8-.306.24a.338.338,0,0,1-.213.068.322.322,0,0,1-.24-.094l-.014-.013a.311.311,0,0,1-.026-.427v-.026l.254-.294,3.066-3.827.734-.893,14.613-18.16a13.591,13.591,0,0,0,0-16.96L12.877-69.88,10.037-73.4l-.173-.227-.013-.013a.364.364,0,0,1,.04-.453.329.329,0,0,1,.453-.015l.227.175,3.519,2.84L33.518-55.467A13.518,13.518,0,0,0,42-52.494a13.517,13.517,0,0,0,8.48-2.973L66.944-68.72l6.44-5.2.253-.188a.347.347,0,0,1,.467.015h.013a.362.362,0,0,1,.027.466c0,.013,0,.013-.013.013l-.187.254-5.2,6.44L55.491-50.453a13.571,13.571,0,0,0,0,16.947L70.037-15.413l3.16,3.919.934,1.16a.348.348,0,0,1-.027.468ZM71.317-7.48A23.131,23.131,0,0,1,57.544-3.054a25.442,25.442,0,0,1-14.68-4.72c-.333-.227-.667-.466-.987-.72L40.9-9.24c-4.307-3.32-8.573-6.946-12.667-10.786l-.187-.173,7.36-5.934A10.506,10.506,0,0,1,42-28.441a10.511,10.511,0,0,1,6.587,2.307L71.544-7.64ZM39.064-6.454a25.578,25.578,0,0,1-12.653,3.4A23.09,23.09,0,0,1,12.678-7.467l-.227-.173L25.664-18.293l.133.133c4.266,4.027,8.746,7.841,13.293,11.347l.254.186Zm-31.4-5.972-.16-.227C2.011-20.16,1.611-30.52,6.478-39.026l.173-.293.214.28c3.507,4.546,7.307,9.013,11.32,13.266l.133.134ZM7.5-71.293l.16-.24L26.158-48.56a10.545,10.545,0,0,1,0,13.173l-5.933,7.36-.173-.187c-3.813-4.079-7.454-8.333-10.8-12.667l-.733-.972c-.254-.32-.493-.641-.733-1C1.611-51.639,1.5-63.067,7.5-71.293Zm5.187-5.187a23.112,23.112,0,0,1,13.747-4.427,25.506,25.506,0,0,1,14.693,4.733c.333.227.653.467.987.72l.973.747C47.344-71.426,51.6-67.8,55.757-63.92l.187.173-7.36,5.933A10.581,10.581,0,0,1,42-55.52a10.576,10.576,0,0,1-6.586-2.293L12.451-76.319Zm32.253-1a25.267,25.267,0,0,1,12.614-3.414A23.287,23.287,0,0,1,71.317-76.48l.227.16L58.317-65.667l-.133-.133c-4.307-4.053-8.773-7.867-13.267-11.32l-.267-.2Zm31.4,5.96.16.227a24.242,24.242,0,0,1,1.014,26.36l-.187.28-.187-.267c-3.467-4.493-7.28-8.946-11.32-13.241l-.133-.133Zm2.973,29.667-.066-.107.066-.12a28.6,28.6,0,0,0,3.467-7.494,27.692,27.692,0,0,0,1.16-8.959,26.288,26.288,0,0,0-6.48-16.4c-.147-.147-.28-.307-.413-.467-.227-.253-.467-.507-.72-.773l-.173-.146c-.387-.4-.8-.773-1.2-1.121A26.21,26.21,0,0,0,57.584-83.92,28.408,28.408,0,0,0,42.1-79.293l-.12.066-.12-.066A28.519,28.519,0,0,0,26.4-83.92,26.2,26.2,0,0,0,9.064-77.453c-.414.346-.826.733-1.227,1.134l-.187.186c-.4.387-.773.8-1.12,1.2-7.973,9.026-8.706,22.226-1.866,32.84l.08.12-.08.12C-2.163-31.24-1.429-18.054,6.518-9.027c.359.413.733.812,1.106,1.186l.227.227c.387.386.786.76,1.186,1.107A26.262,26.262,0,0,0,26.424,0,28.589,28.589,0,0,0,41.877-4.64L42-4.72l.12.081A28.534,28.534,0,0,0,57.558-.014,26.224,26.224,0,0,0,74.944-6.507c.414-.359.813-.733,1.214-1.12l.186-.2c.4-.372.773-.8,1.133-1.186,7.934-9.04,8.68-22.226,1.84-32.839" transform="translate(7440 -18436.08)"/>
+    <path d="M156.584-60.92H145.09l-8.373,11.44L128.6-60.92H116.984l14.04,19-14.04,18.947h11.68l8.053-11,8.013,11h11.64L142.557-41.68,156.584-60.92" transform="translate(7440 -18436.08)"/>
+    <path d="M183.517-33.494a8.783,8.783,0,0,1-7.067,3.04,8.639,8.639,0,0,1-7.067-3.04c-1.707-2-2.547-4.826-2.547-8.426s.853-6.4,2.56-8.414a8.668,8.668,0,0,1,7.053-3.013,8.752,8.752,0,0,1,7.08,3q2.54,3,2.547,8.427c0,3.6-.853,6.426-2.56,8.426Zm7.613-22.72q-5.48-5.379-14.613-5.372-9.22,0-14.707,5.372T156.33-41.92q0,8.9,5.48,14.239t14.707,5.346q9.22,0,14.653-5.333T196.6-41.92q0-8.941-5.467-14.294" transform="translate(7440 -18436.08)"/>
+    <path d="M231.61-57.693C229.183-59.84,225.1-60.92,219.4-60.92h-18.84v37.947h10.027V-52.586h8.053c2.653,0,4.413.426,5.293,1.267s1.32,2.693,1.32,5.519v22.827h10.027V-47.026q0-7.461-3.667-10.667" transform="translate(7440 -18436.08)"/>
+    <path d="M104.172-60.922V-29.27c.042,2.156,1.547,6.031,7.561,6.29h2.955V-60.922H104.172" transform="translate(7440 -18436.08)"/>
+  </g>
+</svg>
+    </div>
+    <div class="header-divider"></div>
+    <div class="spartan-name-badge"><span class="snb-company">SPARTAN</span><span class="snb-sub">Light Metal Products</span></div>
+  </div>
+  <div class="doc-tag">Remote Access Plus</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Spartan Light Metal Products · Solution Architecture · Confidential</div>
+  <h1>Secure, Governed <span>Vendor Access</span><br>Across Every Machine</h1>
+  <p class="hero-subtitle">How IXON Remote Access Plus gives Spartan centralized control over who connects to what — and when — across production lines.</p>
+  <div class="hero-pills">
+    <div class="hero-pill"><span class="dot"></span> No inbound firewall rules</div>
+    <div class="hero-pill"><span class="dot"></span> Access approval workflow</div>
+    <div class="hero-pill"><span class="dot"></span> Vendor IP-level restrictions</div>
+    <div class="hero-pill"><span class="dot"></span> Full audit trail</div>
+    <div class="hero-pill"><span class="dot"></span> IEC 62443-4-2 certified</div>
+  </div>
+</section>
+
+<!-- PLATFORM ARCHITECTURE -->
+<section class="section section-alt">
+  <div class="section-label">Platform Architecture</div>
+  <div class="section-title">How IXON Connects Spartan's Plant</div>
+  <div class="section-desc">Four layers — factory floor to end user — with encrypted, outbound-only tunnels. No persistent VPN. No open firewall ports.</div>
+
+  <div class="arch-wrapper">
+
+    <!-- FACTORY LAYER -->
+    <div class="arch-layer layer-factory">
+      <div class="arch-layer-label">
+        <span class="badge">Layer 1</span> Factory Floor — Machine Network
+      </div>
+      <div class="machines-row">
+        <div class="machine-group">
+          <div class="machine-group-label">Production Line A</div>
+          <div class="machine-chips">
+            <div class="machine-chip"><span class="chip-dot"></span>Press #1 (PLC)</div>
+            <div class="machine-chip"><span class="chip-dot"></span>Press #2 (HMI)</div>
+            <div class="machine-chip chip-router">IXrouter3 A</div>
+          </div>
+        </div>
+        <div class="machine-group">
+          <div class="machine-group-label">Production Line B</div>
+          <div class="machine-chips">
+            <div class="machine-chip"><span class="chip-dot"></span>Cast Cell #3</div>
+            <div class="machine-chip"><span class="chip-dot"></span>Trim Press #4</div>
+            <div class="machine-chip chip-router">IXrouter3 B</div>
+          </div>
+        </div>
+        <div class="machine-group">
+          <div class="machine-group-label">Production Line C</div>
+          <div class="machine-chips">
+            <div class="machine-chip"><span class="chip-dot"></span>Die Cast #5</div>
+            <div class="machine-chip"><span class="chip-dot"></span>CNC #6</div>
+            <div class="machine-chip chip-router">IXrouter3 C</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARROW 1 -->
+    <div class="layer-connector">
+      <div class="connector-line"></div>
+      <div class="connector-label">OUTBOUND HTTPS / 443 — No inbound rules</div>
+      <div class="connector-arrow"></div>
+    </div>
+
+    <!-- EDGE LAYER -->
+    <div class="arch-layer layer-edge">
+      <div class="arch-layer-label">
+        <span class="badge">Layer 2</span> Edge Layer — IXrouter3 Gateways
+      </div>
+      <div class="edge-row">
+        <div class="edge-device">
+          <div class="edge-device-icon">IX</div>
+          <div class="edge-device-info">
+            <div class="edge-device-name">IXrouter3 Gateway</div>
+            <div class="edge-device-detail">IEC 62443-4-2 · DIN-rail · Plug &amp; Connect</div>
+          </div>
+        </div>
+        <div style="flex:1">
+          <div class="edge-features">
+            <span class="edge-feature-tag">DirectVPN tunnel</span>
+            <span class="edge-feature-tag">PLC / HMI connectivity</span>
+            <span class="edge-feature-tag">LAN segmentation</span>
+            <span class="edge-feature-tag">OPC-UA · Modbus TCP · S7</span>
+            <span class="edge-feature-tag">Outbound-only — no open ports</span>
+            <span class="edge-feature-tag">Remote firmware upgrade</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARROW 2 -->
+    <div class="layer-connector">
+      <div class="connector-line"></div>
+      <div class="connector-label">SSL/TLS · x509 certificates · Encrypted session</div>
+      <div class="connector-arrow"></div>
+    </div>
+
+    <!-- CLOUD LAYER -->
+    <div class="arch-layer layer-cloud">
+      <div class="arch-layer-label">
+        <span class="badge">Layer 3</span> IXON Cloud — Secure Connectivity Platform
+      </div>
+      <div class="cloud-row">
+        <div class="cloud-service">
+          <div class="cloud-service-name"><span class="cs-dot"></span>Remote Access Plus</div>
+          <ul class="cloud-service-items">
+            <li>Access request & approval</li>
+            <li>LAN access restrictions</li>
+            <li>Temporary access windows</li>
+            <li>Connection monitoring</li>
+          </ul>
+        </div>
+        <div class="cloud-service">
+          <div class="cloud-service-name"><span class="cs-dot"></span>Fleet Management</div>
+          <ul class="cloud-service-items">
+            <li>All gateways in one view</li>
+            <li>Custom fields per machine</li>
+            <li>Device registration profiles</li>
+            <li>Firmware management</li>
+          </ul>
+        </div>
+        <div class="cloud-service">
+          <div class="cloud-service-name"><span class="cs-dot"></span>Access Control</div>
+          <ul class="cloud-service-items">
+            <li>Role-based permissions</li>
+            <li>Hierarchical user groups</li>
+            <li>SSO (MS / Google)</li>
+            <li>2FA + full audit trail</li>
+          </ul>
+        </div>
+        <div class="cloud-service cloud-compliance">
+          <div class="cloud-service-name"><span class="cs-dot"></span>Compliance</div>
+          <div class="compliance-tags">
+            <span class="ctag">ISO 27001</span>
+            <span class="ctag">IEC 62443-4-2</span>
+            <span class="ctag">IEC 62443-4-1</span>
+            <span class="ctag">EU Data Residency</span>
+            <span class="ctag">17 Global DCs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARROW 3 -->
+    <div class="layer-connector">
+      <div class="connector-line"></div>
+      <div class="connector-label">Per-session VPN tunnel · Scoped access only</div>
+      <div class="connector-arrow"></div>
+    </div>
+
+    <!-- USER LAYER -->
+    <div class="arch-layer layer-user">
+      <div class="arch-layer-label">
+        <span class="badge">Layer 4</span> User Layer — Spartan Engineers, Vendors & Service Technicians
+      </div>
+      <div class="user-row">
+        <div class="user-card">
+          <div class="user-card-role">🏭 Spartan Engineers</div>
+          <div class="user-card-desc">Full access to all machines. Approve or revoke vendor sessions. View audit logs and fleet status.</div>
+          <div class="user-access-tags">
+            <span class="user-access-tag">Full fleet access</span>
+            <span class="user-access-tag">Session approval</span>
+            <span class="user-access-tag">Kill switch</span>
+          </div>
+        </div>
+        <div class="user-card">
+          <div class="user-card-role">🔧 Machine Vendors</div>
+          <div class="user-card-desc">Request-only access. Restricted to specific machine IPs. Session expires automatically after service window.</div>
+          <div class="user-access-tags">
+            <span class="user-access-tag restricted">Request required</span>
+            <span class="user-access-tag restricted">IP-restricted</span>
+            <span class="user-access-tag restricted">Time-limited</span>
+          </div>
+        </div>
+        <div class="user-card">
+          <div class="user-card-role">⚙️ Service Technicians</div>
+          <div class="user-card-desc">Scoped to assigned production lines. Access via DirectVPN or EasyControl (one-click HMI / touchpanel).</div>
+          <div class="user-access-tags">
+            <span class="user-access-tag limited">Assigned lines</span>
+            <span class="user-access-tag limited">EasyControl</span>
+            <span class="user-access-tag limited">DirectVPN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /arch-wrapper -->
+</section>
+
+<!-- REMOTE ACCESS PLUS FEATURES -->
+<section class="section">
+  <div class="section-label">Remote Access Plus</div>
+  <div class="section-title">Key Capabilities for Spartan</div>
+  <div class="section-desc">The features that directly address vendor access governance, machine network security, and operational control at Spartan.</div>
+
+  <div class="security-strip">
+    <span class="security-strip-icon">🔒</span>
+    <div class="security-strip-text">
+      All features below are included in <strong>Remote Access Plus ($375/month)</strong> — unlimited users, unlimited machines, no per-seat licensing.
+    </div>
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature-card primary">
+      <div class="feature-icon fi-blue">🌐</div>
+      <div class="feature-title">LAN Access Management</div>
+      <div class="feature-desc">Each vendor is restricted to specific IP addresses on the machine network behind the IXrouter3. A vendor supporting Press #1 cannot reach Press #2 or any other device on the line.</div>
+      <div class="feature-example">
+        <div><span class="fe-label">Vendor A</span> <span class="fe-arrow">→</span> <span class="fe-value">192.168.1.10</span> <span class="fe-tag">PLC only</span></div>
+        <div><span class="fe-label">Vendor B</span> <span class="fe-arrow">→</span> <span class="fe-value">192.168.1.20</span> <span class="fe-tag">HMI only</span></div>
+        <div><span class="fe-label">Vendor C</span> <span class="fe-arrow">→</span> <span class="fe-value">192.168.1.30</span> <span class="fe-tag">Camera</span></div>
+      </div>
+    </div>
+
+    <div class="feature-card primary">
+      <div class="feature-icon fi-yellow">✅</div>
+      <div class="feature-title">Access Request & Approval</div>
+      <div class="feature-desc">Vendors submit a request before connecting. A Spartan engineer receives a real-time notification and approves or denies the session. No vendor connects without Spartan authorization.</div>
+      <div class="feature-example">
+        <div><span class="fe-label">1.</span> <span class="fe-value">Vendor requests → Press #1 PLC</span></div>
+        <div><span class="fe-label">2.</span> <span class="fe-value">Engineer notified (email + app)</span></div>
+        <div><span class="fe-label">3.</span> <span class="fe-value">Engineer approves + sets window</span> <span class="fe-tag green">Live</span></div>
+        <div><span class="fe-label">4.</span> <span class="fe-value">Full session log retained</span></div>
+      </div>
+    </div>
+
+    <div class="feature-card primary">
+      <div class="feature-icon fi-blue">⏱️</div>
+      <div class="feature-title">Temporary Access</div>
+      <div class="feature-desc">Vendor access automatically expires at the end of the approved service window. No manual revocation required. Eliminates the risk of persistent, forgotten access credentials.</div>
+      <div class="feature-example">
+        <div><span class="fe-label">Session Window</span> <span class="fe-arrow">→</span> <span class="fe-value">2 hrs</span></div>
+        <div><span class="fe-label">Auto-Expiry</span> <span class="fe-arrow">→</span> <span class="fe-value">No manual revoke</span></div>
+        <div><span class="fe-label">Re-Access</span> <span class="fe-arrow">→</span> <span class="fe-value">New request required</span></div>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon fi-green">📡</div>
+      <div class="feature-title">Connection Monitoring & Alerting</div>
+      <div class="feature-desc">IXON Cloud monitors gateway connectivity in real time. If a IXrouter3 goes offline or a machine drops off the network, Spartan engineers receive an alert immediately.</div>
+      <div class="feature-example">
+        <div><span class="fe-label">IXrouter3 B</span> <span class="fe-arrow">→</span> <span class="fe-value">Offline alert</span></div>
+        <div><span class="fe-label">Channel</span> <span class="fe-arrow">→</span> <span class="fe-value">Email · Push · Webhook</span></div>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon fi-blue">🏷️</div>
+      <div class="feature-title">Custom Fields</div>
+      <div class="feature-desc">Tag and categorize every machine in the fleet with metadata specific to Spartan's environment. Enables fast filtering, reporting, and vendor scoping.</div>
+      <div class="feature-example">
+        <div><span class="fe-label">Line</span> <span class="fe-arrow">→</span> <span class="fe-value">Production A / B / C</span></div>
+        <div><span class="fe-label">Machine Type</span> <span class="fe-arrow">→</span> <span class="fe-value">Die Cast / Press / CNC</span></div>
+        <div><span class="fe-label">Vendor</span> <span class="fe-arrow">→</span> <span class="fe-value">Müller / Bühler / Roper</span></div>
+        <div><span class="fe-label">Plant</span> <span class="fe-arrow">→</span> <span class="fe-value">Grand Rapids / Ionia</span></div>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon fi-yellow">🔍</div>
+      <div class="feature-title">LiveView &amp; Audit Trail</div>
+      <div class="feature-desc">See all active sessions in real time. Every session is logged — user, machine, timestamp, duration. Full access history available on demand for security audits or incident review.</div>
+      <div class="feature-example">
+        <div><span class="fe-label">Active</span> <span class="fe-arrow">→</span> <span class="fe-value">Vendor B · Press #1 · 14 min</span></div>
+        <div><span class="fe-label">Kill Switch</span> <span class="fe-arrow">→</span> <span class="fe-value">Instant termination</span></div>
+        <div><span class="fe-label">History</span> <span class="fe-arrow">→</span> <span class="fe-value">Exportable audit log</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- VENDOR ACCESS WORKFLOW -->
+<section class="section section-alt">
+  <div class="section-label">Operational Workflow</div>
+  <div class="section-title">How Vendor Access Works — End to End</div>
+  <div class="section-desc">The complete workflow from vendor request to session close. Spartan maintains control at every step.</div>
+
+  <div class="workflow-steps">
+    <div class="workflow-step">
+      <div class="ws-num">1</div>
+      <div class="ws-label">Vendor Requests Access</div>
+      <div class="ws-desc">Vendor logs into IXON portal and submits access request for specific machine</div>
+    </div>
+    <div class="workflow-step">
+      <div class="ws-num yellow">2</div>
+      <div class="ws-label">Spartan Engineer Notified</div>
+      <div class="ws-desc">Real-time notification via email and IXON app. Engineer reviews request details</div>
+    </div>
+    <div class="workflow-step">
+      <div class="ws-num yellow">3</div>
+      <div class="ws-label">Approval + Time Window Set</div>
+      <div class="ws-desc">Engineer approves session with defined time limit. Scope restricted to specific machine IPs</div>
+    </div>
+    <div class="workflow-step">
+      <div class="ws-num">4</div>
+      <div class="ws-label">Vendor Connects</div>
+      <div class="ws-desc">DirectVPN tunnel opens — scoped to approved machine only. Session visible in LiveView</div>
+    </div>
+    <div class="workflow-step">
+      <div class="ws-num green">5</div>
+      <div class="ws-label">Session Expires + Logged</div>
+      <div class="ws-desc">Access terminates automatically. Full session log retained with user, time, and duration</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIAL DEPLOYMENT PATH -->
+<section class="section">
+  <div class="section-label">Proof of Value Path</div>
+  <div class="section-title">2-Week Validation Sprint</div>
+  <div class="section-desc">The technical setup takes less than a day. The timeline below reflects a realistic enterprise pace — accounting for IT scheduling, machine access windows, and vendor coordination. Most customers are live on pilot machines within the first week.</div>
+
+  <div class="timeline-callout">
+    <div class="tc-item">
+      <div class="tc-icon">⚡</div>
+      <div class="tc-text"><strong>IXON side is same-day.</strong> Environment provisioned, RAC Plus activated, and users configured in under an hour.</div>
+    </div>
+    <div class="tc-item">
+      <div class="tc-icon">📋</div>
+      <div class="tc-text"><strong>IT intake is the critical path.</strong> Port 443 TCP outbound confirmation and network topology review typically takes 2–5 business days.</div>
+    </div>
+  </div>
+
+  <div class="trial-steps">
+
+    <div class="trial-step active">
+      <div class="ts-num">1</div>
+      <div class="ts-content">
+        <div class="ts-title">Day 1 — IXON Provisions the Spartan Environment</div>
+        <div class="ts-desc">IXON provisions the dedicated Spartan Cloud tenant, activates Remote Access Plus, migrates the existing IXrouter3, and configures user roles. This step is fully on IXON — Spartan has a live environment the same day.</div>
+        <div class="ts-checklist">
+          <span class="ts-check">Dedicated Spartan tenant live</span>
+          <span class="ts-check">RAC Plus activated + user roles configured</span>
+          <span class="ts-check">Existing IXrouter3 migrated and online</span>
+        </div>
+      </div>
+      <div class="ts-duration">Day 1</div>
+    </div>
+
+    <div class="trial-step">
+      <div class="ts-num">2</div>
+      <div class="ts-content">
+        <div class="ts-title">Days 1–3 — IT Intake &amp; Network Confirmation</div>
+        <div class="ts-desc">Spartan IT confirms outbound port 443 TCP from the machine network, reviews the IXON security posture, and completes the IT intake form. No inbound firewall rules required — this is typically the fastest IT approval in OT connectivity.</div>
+        <div class="ts-checklist">
+          <span class="ts-check">Port 443 TCP outbound confirmed</span>
+          <span class="ts-check">IXON IT security questionnaire completed</span>
+          <span class="ts-check pending">Network topology shared with IXON SE</span>
+        </div>
+      </div>
+      <div class="ts-duration">Days 1–3</div>
+    </div>
+
+    <div class="trial-step">
+      <div class="ts-num">3</div>
+      <div class="ts-content">
+        <div class="ts-title">Week 1 — Deploy IXrouter3 on 2–3 Pilot Machines</div>
+        <div class="ts-desc">Physical deployment of IXrouter3 gateways on 2–3 selected production machines. Machine IP maps configured per vendor. LAN access restrictions and custom fields set. Gateways appear live in the Spartan Cloud environment.</div>
+        <div class="ts-checklist">
+          <span class="ts-check">2–3 IXrouter3 gateways deployed and online</span>
+          <span class="ts-check">Machine IPs mapped per vendor</span>
+          <span class="ts-check">LAN access restrictions configured</span>
+          <span class="ts-check">Custom fields set (line, machine type, vendor)</span>
+        </div>
+      </div>
+      <div class="ts-duration">Week 1</div>
+    </div>
+
+    <div class="trial-step">
+      <div class="ts-num">4</div>
+      <div class="ts-content">
+        <div class="ts-title">Week 2 — Live Validation with Vendor Workflows</div>
+        <div class="ts-desc">Run live validation scenarios — internal Spartan users simulate vendor sessions to verify every required control. IT and OT sign-off criteria defined upfront so there are no surprises at the end of the sprint.</div>
+        <div class="ts-checklist">
+          <span class="ts-check">Vendor IP restrictions confirmed</span>
+          <span class="ts-check">Access request &amp; approval workflow tested</span>
+          <span class="ts-check">Temporary access auto-expiry verified</span>
+          <span class="ts-check">Connection monitoring alerts received</span>
+          <span class="ts-check pending">IT/OT security sign-off completed</span>
+        </div>
+      </div>
+      <div class="ts-duration">Week 2</div>
+    </div>
+
+    <div class="trial-step">
+      <div class="ts-num">5</div>
+      <div class="ts-content">
+        <div class="ts-title">Week 2–3 — Debrief &amp; Expansion Plan</div>
+        <div class="ts-desc">30-minute debrief call to review pilot results, confirm success criteria met, and scope the Phase 2 expansion. Define the standard IXrouter3 deployment template for all production lines. SaaS agreement and hardware PO executed.</div>
+        <div class="ts-checklist">
+          <span class="ts-check pending">Pilot debrief call completed</span>
+          <span class="ts-check pending">Phase 2 machine list defined</span>
+          <span class="ts-check pending">SaaS agreement + hardware PO executed</span>
+        </div>
+      </div>
+      <div class="ts-duration">Week 2–3</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECONDARY CAPABILITIES -->
+<section class="section section-alt">
+  <div class="section-label">Platform Roadmap</div>
+  <div class="section-title">Additional Capabilities as Spartan Expands</div>
+  <div class="section-desc">Remote Access Plus is the foundation. These modules activate as Spartan's use case grows beyond vendor access governance.</div>
+
+  <table class="cap-table">
+    <thead>
+      <tr>
+        <th>Capability</th>
+        <th>What It Does</th>
+        <th>Phase 1</th>
+        <th>Phase 2+</th>
+        <th>Module</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Remote Access Plus</td>
+        <td>LAN restrictions, access approval, temp access, monitoring, audit trail</td>
+        <td><span class="avail-dot yes">Included</span></td>
+        <td><span class="avail-dot yes">Included</span></td>
+        <td>RAC Plus · $375/mo</td>
+      </tr>
+      <tr>
+        <td>Document Manager</td>
+        <td>Attach machine manuals, wiring diagrams, and SOPs directly to devices in IXON Cloud</td>
+        <td><span class="avail-dot yes">Included</span></td>
+        <td><span class="avail-dot yes">Included</span></td>
+        <td>Included in RAC Plus</td>
+      </tr>
+      <tr>
+        <td>Service Logbook</td>
+        <td>Log service events, notes, and maintenance actions per machine. Persistent history visible to all authorized users</td>
+        <td><span class="avail-dot yes">Included</span></td>
+        <td><span class="avail-dot yes">Included</span></td>
+        <td>Included in RAC Plus</td>
+      </tr>
+      <tr>
+        <td>LiveView</td>
+        <td>Watch active remote sessions in real time from the IXON Cloud portal</td>
+        <td><span class="avail-dot yes">Included</span></td>
+        <td><span class="avail-dot yes">Included</span></td>
+        <td>Included in RAC Plus</td>
+      </tr>
+      <tr>
+        <td>Machine Insights Cloud</td>
+        <td>PLC data logging, OEE dashboards, alarm management, scheduled reports. Understand machine performance without on-site visits</td>
+        <td><span class="avail-dot no">Phase 2</span></td>
+        <td><span class="avail-dot yes">Available</span></td>
+        <td>MIC PoC · $1,300/mo</td>
+      </tr>
+      <tr>
+        <td>Service Portal Cloud</td>
+        <td>White-labeled customer portal for Spartan's internal teams or OEM partners. Custom branding, asset views, and documentation</td>
+        <td><span class="avail-dot no">Phase 3</span></td>
+        <td><span class="avail-dot yes">Available</span></td>
+        <td>SPC · $625/mo</td>
+      </tr>
+      <tr>
+        <td>Edge App Management</td>
+        <td>Deploy Docker apps (Node-RED, Grafana, custom scripts) to IXrouter3 gateways from the cloud. Enables on-machine data processing</td>
+        <td><span class="avail-dot no">Phase 3</span></td>
+        <td><span class="avail-dot yes">Available</span></td>
+        <td>EAM · from $315/mo</td>
+      </tr>
+      <tr>
+        <td>External IAM (SSO / Azure AD)</td>
+        <td>Connect Spartan's Azure Active Directory to IXON Cloud for centralized identity and access management across all users</td>
+        <td><span class="avail-dot no">Optional</span></td>
+        <td><span class="avail-dot yes">Available</span></td>
+        <td>Add-on · $400/mo</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+<!-- PLATFORM RESOURCES -->
+<section class="section">
+  <div class="section-label">Platform Resources</div>
+  <div class="section-title">IXON Reference Links for Spartan</div>
+  <div class="section-desc">Key resources for Spartan's IT, OT, and engineering teams during and after the pilot evaluation. Data intelligence apps are not included here — those are scoped for Phase 2.</div>
+
+  <div class="resources-grid">
+
+    <div class="resource-group">
+      <div class="rg-label">Platform &amp; Support</div>
+      <div class="resource-links">
+        <a href="https://support.ixon.cloud" class="res-link" target="_blank">
+          <span class="rl-icon">🛟</span>
+          <span class="rl-body">
+            <span class="rl-title">Support Portal</span>
+            <span class="rl-url">support.ixon.cloud</span>
+          </span>
+          <span class="rl-arrow">↗</span>
+        </a>
+        <a href="https://status.ixon.cloud" class="res-link" target="_blank">
+          <span class="rl-icon">📡</span>
+          <span class="rl-body">
+            <span class="rl-title">Platform Status</span>
+            <span class="rl-url">status.ixon.cloud</span>
+          </span>
+          <span class="rl-arrow">↗</span>
+        </a>
+        <a href="https://trust.ixon.cloud" class="res-link" target="_blank">
+          <span class="rl-icon">🔒</span>
+          <span class="rl-body">
+            <span class="rl-title">Security &amp; Trust Center</span>
+            <span class="rl-url">trust.ixon.cloud</span>
+          </span>
+          <span class="rl-arrow">↗</span>
+        </a>
+        <a href="https://support.ixon.cloud/s/article/Hardware-catalog-documents" class="res-link" target="_blank">
+          <span class="rl-icon">📦</span>
+          <span class="rl-body">
+            <span class="rl-title">Hardware Catalog (IXrouter3 specs)</span>
+            <span class="rl-url">support.ixon.cloud → Hardware Catalog</span>
+          </span>
+          <span class="rl-arrow">↗</span>
+        </a>
+        <a href="https://developer.ixon.cloud" class="res-link" target="_blank">
+          <span class="rl-icon">⚙️</span>
+          <span class="rl-body">
+            <span class="rl-title">Developer &amp; API Docs</span>
+            <span class="rl-url">developer.ixon.cloud</span>
+          </span>
+          <span class="rl-arrow">↗</span>
+        </a>
+        <a href="https://shop-us.ixon.cloud" class="res-link" target="_blank">
+          <span class="rl-icon">🛒</span>
+          <span class="rl-body">
+            <span class="rl-title">US Hardware Shop</span>
+            <span class="rl-url">shop-us.ixon.cloud</span>
+          </span>
+          <span class="rl-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="resource-group">
+      <div class="rg-label">Marketplace Apps — Relevant to Remote Access Plus</div>
+      <div class="resource-links">
+        <a href="https://marketplace.ixon.cloud/en/apps/remote-assistance-analysis" class="res-link res-featured" target="_blank">
+          <span class="rl-icon">📊</span>
+          <span class="rl-body">
+            <span class="rl-title">Remote Access Analysis <span class="rl-badge">Recommended</span></span>
+            <span class="rl-url">Visualize session history, access frequency, and vendor usage patterns</span>
+          </span>
+          <span class="rl-arrow">↗</span>
+        </a>
+        <a href="https://marketplace.ixon.cloud/en/apps/user-access-graph" class="res-link res-featured" target="_blank">
+          <span class="rl-icon">🔗</span>
+          <span class="rl-body">
+            <span class="rl-title">User Access Graph <span class="rl-badge">Recommended</span></span>
+            <span class="rl-url">Visual map of who has access to which machines and groups</span>
+          </span>
+          <span class="rl-arrow">↗</span>
+        </a>
+        <a href="https://marketplace.ixon.cloud/en/apps/document-management" class="res-link" target="_blank">
+          <span class="rl-icon">📁</span>
+          <span class="rl-body">
+            <span class="rl-title">Document Management (AI)</span>
+            <span class="rl-url">Attach manuals, wiring diagrams, and SOPs per machine</span>
+          </span>
+          <span class="rl-arrow">↗</span>
+        </a>
+        <a href="https://marketplace.ixon.cloud/en/apps/service-logbook" class="res-link" target="_blank">
+          <span class="rl-icon">📝</span>
+          <span class="rl-body">
+            <span class="rl-title">Service Logbook</span>
+            <span class="rl-url">Log service events and maintenance notes per machine</span>
+          </span>
+          <span class="rl-arrow">↗</span>
+        </a>
+        <a href="https://marketplace.ixon.cloud/en/apps/bulk-firmware-upgrader" class="res-link" target="_blank">
+          <span class="rl-icon">🔄</span>
+          <span class="rl-body">
+            <span class="rl-title">Bulk Firmware Upgrade</span>
+            <span class="rl-url">Push firmware updates to all IXrouter3 gateways from the cloud</span>
+          </span>
+          <span class="rl-arrow">↗</span>
+        </a>
+        <a href="https://marketplace.ixon.cloud/en/apps" class="res-link res-all" target="_blank">
+          <span class="rl-icon">🏪</span>
+          <span class="rl-body">
+            <span class="rl-title">View All Marketplace Apps</span>
+            <span class="rl-url">marketplace.ixon.cloud/en/apps</span>
+          </span>
+          <span class="rl-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="section section-nextsteps">
+  <div class="section-label">Recommended Next Steps</div>
+  <div class="section-title">Forward Path for Spartan</div>
+  <div class="section-desc">Three concrete actions to move from evaluation to live pilot in under two weeks.</div>
+
+  <div class="next-steps-grid">
+    <div class="next-step-card">
+      <div class="ns-num">1</div>
+      <div class="ns-action">Complete IT Intake</div>
+      <div class="ns-desc">Confirm outbound port 443 TCP is open from machine network. Complete IXON IT security questionnaire. Share existing network topology.</div>
+      <div class="ns-owner">Owner: Spartan IT + IXON SE · Week 1</div>
+    </div>
+    <div class="next-step-card">
+      <div class="ns-num">2</div>
+      <div class="ns-action">Provision Trial Environment</div>
+      <div class="ns-desc">IXON provisions dedicated Spartan tenant. Migrate existing gateway. Configure Remote Access Plus with Spartan's user roles and vendor groups.</div>
+      <div class="ns-owner">Owner: IXON Onboarding · Week 1</div>
+    </div>
+    <div class="next-step-card">
+      <div class="ns-num">3</div>
+      <div class="ns-action">Deploy 2–3 Pilot Gateways</div>
+      <div class="ns-desc">Deploy IXrouter3 on 2–3 key production machines. Configure LAN access restrictions per vendor. Run live access approval validation scenarios.</div>
+      <div class="ns-owner">Owner: Spartan OT + IXON · Week 2</div>
+    </div>
+    <div class="next-step-card">
+      <div class="ns-num">4</div>
+      <div class="ns-action">Validate & Expand Plan</div>
+      <div class="ns-desc">Review pilot results against defined success criteria. Scope Phase 2 expansion across full machine fleet. Define standard configuration template for all IXrouter3 deployments.</div>
+      <div class="ns-owner">Owner: Joint Review · Week 3–4</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div>
+    <div class="cta-text">Ready to move forward with Spartan?</div>
+    <div class="cta-sub">IXrouter3 gateway + Remote Access Plus — deploy in days, not weeks.</div>
+  </div>
+  <div class="cta-actions">
+    <a href="https://trust.ixon.cloud" class="cta-btn">Security &amp; Compliance ↗</a>
+    <a href="https://www.ixon.cloud" class="cta-btn secondary">ixon.cloud ↗</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 235.277 83.92" style="height:28px;width:auto;fill:#fff;opacity:0.85;">
+  <g transform="translate(-7440 18520)">
+    <path d="M76.5-12.667l-.173.227L57.837-35.4a10.582,10.582,0,0,1,0-13.16l5.934-7.359.173.186C67.8-51.6,71.451-47.347,74.73-43.08l.747.987c.253.319.493.652.733,1,6.147,8.786,6.267,20.212.294,28.425Zm-2.4,2.8a.369.369,0,0,1-.254.107.362.362,0,0,1-.2-.068l-.013-.013-1.16-.934-3.92-3.159L50.477-28.494A13.582,13.582,0,0,0,42-31.454a13.583,13.583,0,0,0-8.48,2.96L15.358-13.866l-4.707,3.8-.306.24a.338.338,0,0,1-.213.068.322.322,0,0,1-.24-.094l-.014-.013a.311.311,0,0,1-.026-.427v-.026l.254-.294,3.066-3.827.734-.893,14.613-18.16a13.591,13.591,0,0,0,0-16.96L12.877-69.88,10.037-73.4l-.173-.227-.013-.013a.364.364,0,0,1,.04-.453.329.329,0,0,1,.453-.015l.227.175,3.519,2.84L33.518-55.467A13.518,13.518,0,0,0,42-52.494a13.517,13.517,0,0,0,8.48-2.973L66.944-68.72l6.44-5.2.253-.188a.347.347,0,0,1,.467.015h.013a.362.362,0,0,1,.027.466c0,.013,0,.013-.013.013l-.187.254-5.2,6.44L55.491-50.453a13.571,13.571,0,0,0,0,16.947L70.037-15.413l3.16,3.919.934,1.16a.348.348,0,0,1-.027.468ZM71.317-7.48A23.131,23.131,0,0,1,57.544-3.054a25.442,25.442,0,0,1-14.68-4.72c-.333-.227-.667-.466-.987-.72L40.9-9.24c-4.307-3.32-8.573-6.946-12.667-10.786l-.187-.173,7.36-5.934A10.506,10.506,0,0,1,42-28.441a10.511,10.511,0,0,1,6.587,2.307L71.544-7.64ZM39.064-6.454a25.578,25.578,0,0,1-12.653,3.4A23.09,23.09,0,0,1,12.678-7.467l-.227-.173L25.664-18.293l.133.133c4.266,4.027,8.746,7.841,13.293,11.347l.254.186Zm-31.4-5.972-.16-.227C2.011-20.16,1.611-30.52,6.478-39.026l.173-.293.214.28c3.507,4.546,7.307,9.013,11.32,13.266l.133.134ZM7.5-71.293l.16-.24L26.158-48.56a10.545,10.545,0,0,1,0,13.173l-5.933,7.36-.173-.187c-3.813-4.079-7.454-8.333-10.8-12.667l-.733-.972c-.254-.32-.493-.641-.733-1C1.611-51.639,1.5-63.067,7.5-71.293Zm5.187-5.187a23.112,23.112,0,0,1,13.747-4.427,25.506,25.506,0,0,1,14.693,4.733c.333.227.653.467.987.72l.973.747C47.344-71.426,51.6-67.8,55.757-63.92l.187.173-7.36,5.933A10.581,10.581,0,0,1,42-55.52a10.576,10.576,0,0,1-6.586-2.293L12.451-76.319Zm32.253-1a25.267,25.267,0,0,1,12.614-3.414A23.287,23.287,0,0,1,71.317-76.48l.227.16L58.317-65.667l-.133-.133c-4.307-4.053-8.773-7.867-13.267-11.32l-.267-.2Zm31.4,5.96.16.227a24.242,24.242,0,0,1,1.014,26.36l-.187.28-.187-.267c-3.467-4.493-7.28-8.946-11.32-13.241l-.133-.133Zm2.973,29.667-.066-.107.066-.12a28.6,28.6,0,0,0,3.467-7.494,27.692,27.692,0,0,0,1.16-8.959,26.288,26.288,0,0,0-6.48-16.4c-.147-.147-.28-.307-.413-.467-.227-.253-.467-.507-.72-.773l-.173-.146c-.387-.4-.8-.773-1.2-1.121A26.21,26.21,0,0,0,57.584-83.92,28.408,28.408,0,0,0,42.1-79.293l-.12.066-.12-.066A28.519,28.519,0,0,0,26.4-83.92,26.2,26.2,0,0,0,9.064-77.453c-.414.346-.826.733-1.227,1.134l-.187.186c-.4.387-.773.8-1.12,1.2-7.973,9.026-8.706,22.226-1.866,32.84l.08.12-.08.12C-2.163-31.24-1.429-18.054,6.518-9.027c.359.413.733.812,1.106,1.186l.227.227c.387.386.786.76,1.186,1.107A26.262,26.262,0,0,0,26.424,0,28.589,28.589,0,0,0,41.877-4.64L42-4.72l.12.081A28.534,28.534,0,0,0,57.558-.014,26.224,26.224,0,0,0,74.944-6.507c.414-.359.813-.733,1.214-1.12l.186-.2c.4-.372.773-.8,1.133-1.186,7.934-9.04,8.68-22.226,1.84-32.839" transform="translate(7440 -18436.08)"/>
+    <path d="M156.584-60.92H145.09l-8.373,11.44L128.6-60.92H116.984l14.04,19-14.04,18.947h11.68l8.053-11,8.013,11h11.64L142.557-41.68,156.584-60.92" transform="translate(7440 -18436.08)"/>
+    <path d="M183.517-33.494a8.783,8.783,0,0,1-7.067,3.04,8.639,8.639,0,0,1-7.067-3.04c-1.707-2-2.547-4.826-2.547-8.426s.853-6.4,2.56-8.414a8.668,8.668,0,0,1,7.053-3.013,8.752,8.752,0,0,1,7.08,3q2.54,3,2.547,8.427c0,3.6-.853,6.426-2.56,8.426Zm7.613-22.72q-5.48-5.379-14.613-5.372-9.22,0-14.707,5.372T156.33-41.92q0,8.9,5.48,14.239t14.707,5.346q9.22,0,14.653-5.333T196.6-41.92q0-8.941-5.467-14.294" transform="translate(7440 -18436.08)"/>
+    <path d="M231.61-57.693C229.183-59.84,225.1-60.92,219.4-60.92h-18.84v37.947h10.027V-52.586h8.053c2.653,0,4.413.426,5.293,1.267s1.32,2.693,1.32,5.519v22.827h10.027V-47.026q0-7.461-3.667-10.667" transform="translate(7440 -18436.08)"/>
+    <path d="M104.172-60.922V-29.27c.042,2.156,1.547,6.031,7.561,6.29h2.955V-60.922H104.172" transform="translate(7440 -18436.08)"/>
+  </g>
+</svg>
+    <div class="footer-cert">
+      <span class="cert-badge">ISO 27001</span>
+      <span class="cert-badge">IEC 62443-4-2</span>
+      <span class="cert-badge">ISO 9001</span>
+      <span class="cert-badge">GDPR</span>
+    </div>
+  </div>
+  <div class="footer-right">
+    Prepared for Spartan Light Metal Products<br>
+    IXON Cloud North America · www.ixon.cloud · Confidentia
